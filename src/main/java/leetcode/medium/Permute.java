@@ -1,6 +1,8 @@
 package leetcode.medium;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -12,13 +14,34 @@ import java.util.List;
 
 public class Permute {
 
-    public List<List<Integer>> permute(int[] nums) {
-        int amount = (nums.length + 1) * nums.length / 2;
-        List<List<Integer>> lists = new ArrayList<>(amount);
-
-        for (int i = 0; i < nums.length; i++) {
-            //TODO
+    public static void main(String[] args) {
+        Permute permute = new Permute();
+        int[] nums = new int[]{1, 2, 3};
+        List<List<Integer>> output = permute.permute(nums);
+        for (List list : output) {
+            System.out.println(list.toString());
         }
-        return lists;
+    }
+
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> output = new LinkedList<>();
+        ArrayList<Integer> numsList = new ArrayList<Integer>();
+        for (Integer i : nums) {
+            numsList.add(i);
+        }
+        int n = nums.length;
+        backtrack(n, numsList, output, 0);
+        return output;
+    }
+
+    public void backtrack(int n, ArrayList<Integer> nums, List<List<Integer>> output, int first) {
+        if (first == n) {
+            output.add(new ArrayList<Integer>(nums));
+        }
+        for (int i = first; i < n; i++) {
+            Collections.swap(nums, first, i);
+            backtrack(n, nums, output, first + 1);
+            Collections.swap(nums, first, i);
+        }
     }
 }

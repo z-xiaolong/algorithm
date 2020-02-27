@@ -13,11 +13,8 @@ public class GetPostUtil {
     public static String u = "http://pic.jj20.com/up/allimg/1112/11251Q20000/1Q125120000-";
 
     public static void main(String[] args) {
-
         long start = System.currentTimeMillis();
-
         String data = sendGet(url);
-
         long end = System.currentTimeMillis();
         System.out.println(end - start);
         System.out.println(data.length());

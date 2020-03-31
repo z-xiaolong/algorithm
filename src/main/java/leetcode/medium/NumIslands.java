@@ -16,7 +16,41 @@ public class NumIslands {
         System.out.println(numbers.length);
         System.out.println(NumIslands.class.getName());
     }
+
+    //dfs：执行用时 :1 ms, 在所有 Java 提交中击败了100.00%的用户
     public int numIslands(char[][] grid) {
-        return 0;
+        int c = grid.length;
+        if (c == 0) {
+            return 0;
+        }
+        int r = grid[0].length;
+        int max = 0;
+        for (int i = 0; i < c; i++) {
+            for (int j = 0; j < r; j++) {
+                if (grid[i][j] == '1') {
+                    max++;
+                    dfs(grid, i, j);
+                }
+            }
+        }
+        return max;
+    }
+
+    public void dfs(char[][] grid, int i, int j) {
+        int c = grid.length;
+        int r = grid[0].length;
+        grid[i][j] = '2';
+        if (i - 1 >= 0 && grid[i - 1][j] == '1') {
+            dfs(grid, i - 1, j);
+        }
+        if (i + 1 < c && grid[i + 1][j] == '1') {
+            dfs(grid, i + 1, j);
+        }
+        if (j - 1 >= 0 && grid[i][j - 1] == '1') {
+            dfs(grid, i, j - 1);
+        }
+        if (j + 1 < r && grid[i][j + 1] == '1') {
+            dfs(grid, i, j + 1);
+        }
     }
 }

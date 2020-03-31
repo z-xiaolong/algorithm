@@ -14,7 +14,7 @@ import java.util.List;
  **/
 
 public class LengthOfLIS {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         List<Integer> list = new LinkedList<>();
         list.add(1);
         list.add(2);
@@ -22,7 +22,7 @@ public class LengthOfLIS {
         for (int i : list) {
             System.out.print(i);
         }
-    }
+    }*/
 
     //二分法
     public int lengthOfLIS2(int[] nums) {
@@ -76,24 +76,44 @@ public class LengthOfLIS {
         lists.add(list);
     }
 
-    //动态规划
-    public int lengthOfLISDP(int[] nums) {
+    public static void main(String[] args) {
+        int[] nums = new int[]{10, 9, 2, 5, 3, 7, 7, 101, 18};
+        lengthOfLISII(nums);
+    }
+
+    //
+    public static int lengthOfLISII(int[] nums) {
         if (nums.length == 0) {
             return 0;
         }
         int[] array = new int[nums.length];
         Arrays.fill(array, 1);
+        int max = 1;
         for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < i; j++) {
+            for (int j = i - 1; j >= 0; j--) {
                 if (nums[i] > nums[j]) {
                     array[i] = Math.max(array[j] + 1, array[i]);
                 }
             }
-        }
-        int max = 0;
-        for (int n : array) {
-            max = Math.max(max, n);
+            max = Math.max(array[i], max);
         }
         return max;
+    }
+
+    public int lengthOfLISI(int[] nums) {
+        int[] subNums = new int[nums.length];
+        for (int i = 1; i < nums.length; i++) {
+            subNums[i] = nums[i] - nums[i - 1];
+        }
+        int sum = Integer.MIN_VALUE;
+        int count = 0;
+        for (int i = 1; i < subNums.length; i++) {
+            if (sum > 0) {
+                sum += subNums[i];
+            } else {
+                sum = subNums[i];
+            }
+        }
+        return 0;
     }
 }

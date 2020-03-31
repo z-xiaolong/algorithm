@@ -11,13 +11,6 @@ package leetcode.easy.dp;
  **/
 
 public class Massage {
-    public int massage(int[] nums) {
-        int sum = 0;
-        for (int num : nums) {
-
-        }
-        return sum;
-    }
 
     //动态规划，f(k) = max(f(k – 2) + A[k] , f(k – 1))
     public int recursion(int[] nums, int max, int index){

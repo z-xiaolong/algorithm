@@ -7,7 +7,8 @@ import java.util.Map;
  * @Author long
  * @Date 21:22 2019/11/12
  * @Title 两数之和
- * @Description 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。
+ * @Description 给定一个整数数组 nums 和一个目标值 target，
+ * 请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。
  **/
 
 public class TwoSum {
@@ -27,7 +28,7 @@ public class TwoSum {
     }
 
     public int[] twoSum_two(int[] nums, int target) {
-        Map<Integer, Integer> numMap = new HashMap<Integer, Integer>(nums.length);
+        Map<Integer, Integer> numMap = new HashMap<>(nums.length);
         for (int i = 0; i < nums.length; ++i) {
             int tmp = nums[i];
             int pairValue = target - tmp;

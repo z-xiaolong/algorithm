@@ -12,6 +12,7 @@ import leetcode.entity.TreeNode;
 
 public class DiameterOfBinaryTree {
     private int diameter = 0;
+
     public int diameterOfBinaryTree(TreeNode root) {
         if (root == null) {
             return 0;

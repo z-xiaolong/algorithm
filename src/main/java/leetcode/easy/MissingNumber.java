@@ -10,6 +10,7 @@ package leetcode.easy;
 
 public class MissingNumber {
 
+    //内存O(n) , 执行用时 :1 ms, 在所有 Java 提交中击败了82.46%的用户
     public int missingNumber(int[] nums) {
         int length = nums.length;
         int[] array = new int[length + 1];
@@ -24,7 +25,7 @@ public class MissingNumber {
         return 0;
     }
 
-    //异或操作
+    //异或操作  执行用时 :0 ms, 在所有 Java 提交中击败了100.00%的用户
     public int missingNumber2(int[] nums) {
         int res = 0;
         for (int i = 0; i < nums.length; ++i) {
@@ -34,4 +35,8 @@ public class MissingNumber {
         res ^= nums.length;
         return res;
     }
+
+
+
+
 }

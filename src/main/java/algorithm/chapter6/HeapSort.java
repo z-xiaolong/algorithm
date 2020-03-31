@@ -45,13 +45,11 @@ public class HeapSort {
     }
 
     public static void maxHeapify(int[] array, int index, int size) {
-        int largest;
+        int largest = index;
         int left = index * 2 + 1;
         int right = index * 2 + 2;
-        if (left <= size && array[left] > array[index]) {
+        if (left <= size && array[left] > array[largest]) {
             largest = left;
-        } else {
-            largest = index;
         }
         if (right <= size && array[right] > array[largest]) {
             largest = right;
@@ -60,7 +58,7 @@ public class HeapSort {
             array[largest] = array[largest] + array[index];
             array[index] = array[largest] - array[index];
             array[largest] = array[largest] - array[index];
-            maxHeapify(array, largest, size);
+            maxHeapify(array, largest, size); //很重要的****
         }
     }
 

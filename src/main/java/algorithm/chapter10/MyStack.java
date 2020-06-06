@@ -7,13 +7,13 @@ package algorithm.chapter10;
  * @Description 栈
  **/
 
-public class Stack<T> {
+public class MyStack<T> {
 
     private int length = 0;
     private Node bottom = new Node();
     private Node top = bottom;
 
-    public Stack() {
+    public MyStack() {
     }
 
     public boolean isEmpty(){

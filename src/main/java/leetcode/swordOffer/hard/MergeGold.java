@@ -1,4 +1,4 @@
-package leetcode.swordOffer.difficulty;
+package leetcode.swordOffer.hard;
 
 import java.util.Scanner;
 

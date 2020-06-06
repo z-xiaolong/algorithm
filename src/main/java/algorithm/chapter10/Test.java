@@ -9,13 +9,13 @@ package algorithm.chapter10;
 
 public class Test {
     public static void main(String[] args) {
-        Stack<String> stack = new Stack<>();
-        stack.push("a");
-        stack.push("b");
-        stack.push("c");
-        stack.push("d");
-        stack.push("e");
-        stack.pop();
-        stack.print();
+        MyStack<String> myStack = new MyStack<>();
+        myStack.push("a");
+        myStack.push("b");
+        myStack.push("c");
+        myStack.push("d");
+        myStack.push("e");
+        myStack.pop();
+        myStack.print();
     }
 }

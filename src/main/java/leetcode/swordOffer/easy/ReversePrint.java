@@ -1,6 +1,6 @@
 package leetcode.swordOffer.easy;
 
-import algorithm.chapter10.Stack;
+import algorithm.chapter10.MyStack;
 import leetcode.entity.ListNode;
 
 /**
@@ -16,16 +16,16 @@ public class ReversePrint {
     //栈
     public int[] reversePrint(ListNode head) {
         int size = 0;
-        Stack<ListNode> stack = new Stack<>();
+        MyStack<ListNode> myStack = new MyStack<>();
         while (head != null) {
-            stack.push(head);
+            myStack.push(head);
             head = head.next;
             size++;
         }
         int index = 0;
         int[] nums = new int[size];
-        while (!stack.isEmpty()) {
-            nums[index++] = stack.pop().val;
+        while (!myStack.isEmpty()) {
+            nums[index++] = myStack.pop().val;
         }
         return nums;
     }

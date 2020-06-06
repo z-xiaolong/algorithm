@@ -1,13 +1,80 @@
-import algorithm.chapter10.Stack;
+import algorithm.chapter10.MyStack;
 import leetcode.entity.ListNode;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Main {
 
+    public static void exception(int i) {
+        throw new RuntimeException();
+    }
+
+    private static int Main(int i) {
+        System.out.println("Main()");
+        return -1;
+    }
+
 
     public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = Integer.parseInt(in.nextLine());
+        Stack<Integer> prevStack = new Stack<>();
+        Stack<Integer> nextStack = new Stack<>();
+        for (int i = 0; i < n; i++) {
+            String str = in.nextLine();
+            operate(prevStack, nextStack, str);
+        }
+    }
 
+    public static void operate(Stack<Integer> prevStack, Stack<Integer> nextStack, String str) {
+        if (str.contains("add")) {
+            int num = Integer.parseInt(str.split(" ")[1]);
+            prevStack.push(num);
+        } else if ("peek".equals(str)) {
+            if (nextStack.isEmpty()) {
+                while (!prevStack.isEmpty()) {
+                    nextStack.push(prevStack.pop());
+                }
+            }
+            System.out.println(nextStack.peek());
+        } else if ("poll".equals(str)) {
+            if (nextStack.isEmpty()) {
+                while (!prevStack.isEmpty()) {
+                    nextStack.push(prevStack.pop());
+                }
+            }
+            nextStack.pop();
+        }
+    }
+
+    public static long parent(long x, int k) {
+        int level = 0;
+        long temp = x;
+        while (temp > 0) {
+            temp >>= 1;
+            level++;
+        }
+        if (level <= k) return -1;
+        long parent = x;
+        while (level > k) {
+            parent >>= 1;
+            level--;
+        }
+        return parent;
+    }
+
+    public static void operate(Queue<Integer> queue, String str) {
+        if (str.contains("add")) {
+            int num = Integer.parseInt(str.split(" ")[1]);
+            queue.add(num);
+        } else if ("peek".equals(str)) {
+            System.out.println(queue.peek());
+        } else if ("poll".equals(str)) {
+            queue.poll();
+        }
     }
 
 
@@ -86,15 +153,15 @@ public class Main {
         if (head == null) {
             return null;
         }
-        Stack<ListNode> stack = new Stack<>();
+        MyStack<ListNode> myStack = new MyStack<>();
         while (head != null) {
-            stack.push(head);
+            myStack.push(head);
             head = head.next;
         }
-        head = stack.pop();
+        head = myStack.pop();
         ListNode temp = head;
-        while (!stack.isEmpty()) {
-            ListNode node = stack.pop();
+        while (!myStack.isEmpty()) {
+            ListNode node = myStack.pop();
             temp.next = node;
             temp = node;
         }

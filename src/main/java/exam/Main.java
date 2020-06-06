@@ -1,9 +1,10 @@
 package exam;
 
+import org.omg.PortableInterceptor.INACTIVE;
+
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.PriorityQueue;
 import java.util.Scanner;
+import java.util.Stack;
 
 /**
  * @Author long
@@ -15,20 +16,32 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        long n = in.nextLong();
-        PriorityQueue<Long> queue = new PriorityQueue<>(Comparator.reverseOrder());
-        PriorityQueue<Long> minQueue = new PriorityQueue<>();
-        for (int i = 0; i < n; i++) {
-            long num = in.nextLong();
-            queue.add(num);
-            minQueue.add(num);
+        while (in.hasNextInt()) {
+            System.out.print(in.nextInt());
         }
-        long count = 0;
-        while (queue.peek() + count >= n) {
-            long num = queue.poll();
-            queue.add(num - n - 1);
-            count++;
-        }
-        System.out.println(count);
+
     }
+
+    public static void operate(Stack<Integer> prevStack, Stack<Integer> nextStack, String str) {
+        if (str.contains("add")) {
+            int num = Integer.parseInt(str.split(" ")[1]);
+            prevStack.push(num);
+        } else if (str.contains("peek")) {
+            if (nextStack.isEmpty()) {
+                while (!prevStack.isEmpty()) {
+                    nextStack.push(prevStack.pop());
+                }
+            }
+            System.out.println(nextStack.peek());
+        } else if (str.contains("poll")) {
+            if (nextStack.isEmpty()) {
+                while (!prevStack.isEmpty()) {
+                    nextStack.push(prevStack.pop());
+                }
+            }
+            nextStack.pop();
+        }
+    }
+
+
 }

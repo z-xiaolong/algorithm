@@ -6,7 +6,7 @@ package algorithm.chapter7;
  * @Description 快速排序，分治
  */
 public class QuickSort {
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
         int[] array = new int[]{-6, 1, 2, 1, 2, -39, 1, 4, 0, 8, 5, 8, 2};
         //Arrays.sort(array);
         for (int i : array) {
@@ -17,7 +17,7 @@ public class QuickSort {
         for (int i : array) {
             System.out.print(i + " ");
         }
-    }
+    }*/
 
 
     public static void quickSort(int[] array, int head, int tail) {
@@ -66,10 +66,34 @@ public class QuickSort {
     }
 
     public static void exchange(int[] array, int a, int b) {
-        if(a == b)
+        if (a == b)
             return;
         array[a] = array[a] + array[b];
         array[b] = array[a] - array[b];
         array[a] = array[a] - array[b];
+    }
+
+
+    public static void main(String[] args) {
+        int[] array = new int[]{2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2};
+        partitionI(array, 0, array.length - 1);
+    }
+
+    private static int partitionI(int[] nums, int lo, int hi) {
+        int v = nums[lo];
+        int i = lo, j = hi + 1;
+        while (true) {
+            while (++i <= hi && nums[i] < v) ;
+            while (--j >= lo && nums[j] > v) ;
+            if (i >= j) {
+                break;
+            }
+            int t = nums[j];
+            nums[j] = nums[i];
+            nums[i] = t;
+        }
+        nums[lo] = nums[j];
+        nums[j] = v;
+        return j;
     }
 }

@@ -34,23 +34,23 @@ public class SuperEggDrop {
     }
 
 
-    int[][] nums;
+    int[][] dp;
 
     //动态规划+二分
     public int superEggDrop2(int K, int N) {
-        nums = new int[K + 1][N + 1];
+        dp = new int[K + 1][N + 1];
         return dp2(K, N);
     }
 
     public int dp2(int K, int N) {
-        if (nums[K][N] != 0) {
-            return nums[K][N];
+        if (dp[K][N] != 0) {
+            return dp[K][N];
         }
         if (K == 1 || N <= 2) {
-            nums[K][N] = N;
+            dp[K][N] = N;
             return N;
         }
-        nums[K][N] = N;
+        dp[K][N] = N;
         int high = N;
         int low = 1;
         while (low <= high) {
@@ -59,15 +59,17 @@ public class SuperEggDrop {
             int notBroken = dp2(K, N - mid);
             if (broken > notBroken) {
                 high = mid - 1;
-                nums[K][N] = Math.min(nums[K][N], broken + 1);
+                dp[K][N] = Math.min(dp[K][N], broken + 1);
             } else {
                 low = mid + 1;
-                nums[K][N] = Math.min(nums[K][N], notBroken + 1);
+                dp[K][N] = Math.min(dp[K][N], notBroken + 1);
             }
         }
-        return nums[K][N];
+        return dp[K][N];
     }
 
+
+    int[][] nums;
 
     //动态规划，超时
     public int superEggDrop1(int K, int N) {

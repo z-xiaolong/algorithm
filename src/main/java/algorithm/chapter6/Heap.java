@@ -3,7 +3,7 @@ package algorithm.chapter6;
 /**
  * @Author long
  * @Date 2019/10/5 20:43
- * @Description 完全二叉树
+ * @Description 堆，完全二叉树
  */
 public class Heap {
     public int[] heap;

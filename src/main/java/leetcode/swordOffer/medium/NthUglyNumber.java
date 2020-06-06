@@ -9,18 +9,18 @@ package leetcode.swordOffer.medium;
 
 public class NthUglyNumber {
     public int nthUglyNumber(int n) {
-        int[] dp = new int[n + 1];
+        int[] dp = new int[n];
         dp[0] = 1;
         int p2 = 0;
         int p3 = 0;
         int p5 = 0;
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i < n; i++) {
             int min = Math.min(dp[p2] * 2, Math.min(dp[p3] * 3, dp[p5] * 5));
             dp[i] = min;
             if (dp[i] == dp[p2] * 2) p2++;
             if (dp[i] == dp[p3] * 3) p3++;
             if (dp[i] == dp[p5] * 5) p5++;
         }
-        return dp[n];
+        return dp[n - 1];
     }
 }

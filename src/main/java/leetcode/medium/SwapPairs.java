@@ -1,6 +1,5 @@
 package leetcode.medium;
 
-import algorithm.chapter10.Stack;
 import leetcode.entity.ListNode;
 
 /**

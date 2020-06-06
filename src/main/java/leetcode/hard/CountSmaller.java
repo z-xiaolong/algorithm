@@ -64,7 +64,6 @@ public class CountSmaller {
         while (j >= left) {
             nums[k--] = nums[j--];
         }
-
         return 0;
     }
 }

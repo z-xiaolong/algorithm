@@ -11,21 +11,18 @@ public class KMP {
 
     public static void main(String[] args) {
         KMP kmp = new KMP();
-        int i = kmp.kmp("abcbabcdabde", "abbb");
+        int i = kmp.kmp("abcbabcdabde", "abcdab");
         System.out.println(i);
     }
 
-    public int kmp(String txt, String target) {
-        int txtLength = txt.length();
-        int targetLength = target.length();
-        int[] next = next(target);
+    public int kmp(String S, String P) {
+        int sLen = S.length();
+        int pLen = P.length();
+        int[] next = next(P);
         int i = 0;
         int j = 0;
-        while (i < txtLength) {
-            if (j == targetLength) {
-                return i - j;
-            }
-            if (txt.charAt(i) == target.charAt(j)) {
+        while (i < sLen && j < pLen) {
+            if (S.charAt(i) == P.charAt(j)) {
                 i++;
                 j++;
             } else if (j == 0) {
@@ -34,7 +31,8 @@ public class KMP {
                 j = next[j - 1]; //最大相同前缀后缀
             }
         }
-        return -1;
+        if (j == pLen) return i - j;
+        else return -1;
     }
 
     //双指针

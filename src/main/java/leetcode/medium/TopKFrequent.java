@@ -8,29 +8,24 @@ import java.util.*;
  * @Description 347.前 K 个高频元素：给定一个非空的整数数组，返回其中出现频率前 k 高的元素。
  */
 public class TopKFrequent {
+
+
+    //执行用时 :16 ms, 在所有 Java 提交中击败了87.73%的用户
     public List<Integer> topKFrequent(int[] nums, int k) {
-        // build hash map : character and how often it appears
-        HashMap<Integer, Integer> count = new HashMap();
-        for (int n : nums) {
-            count.put(n, count.getOrDefault(n, 0) + 1);
+        Map<Integer, Integer> hashMap = new HashMap<>();
+        List<Integer> list = new LinkedList<>();
+        PriorityQueue<int[]> priorityQueue = new PriorityQueue<>((o1, o2) -> o2[1] - o1[1]);
+        for (int num : nums) {
+            hashMap.put(num, hashMap.getOrDefault(num, 0) + 1);
         }
-
-        // init heap 'the less frequent element first'
-        PriorityQueue<Integer> heap =
-                new PriorityQueue<Integer>((n1, n2) -> count.get(n1) - count.get(n2));
-
-        // keep k top frequent elements in the heap
-        for (int n : count.keySet()) {
-            heap.add(n);
-            if (heap.size() > k)
-                heap.poll();
+        for (Map.Entry<Integer, Integer> entry : hashMap.entrySet()) {
+            int key = entry.getKey();
+            int value = entry.getValue();
+            priorityQueue.add(new int[]{key, value});
         }
-
-        // build output list
-        List<Integer> top_k = new LinkedList();
-        while (!heap.isEmpty())
-            top_k.add(heap.poll());
-        Collections.reverse(top_k);
-        return top_k;
+        while (list.size() < k) {
+            list.add(priorityQueue.poll()[0]);
+        }
+        return list;
     }
 }

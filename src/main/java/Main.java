@@ -19,14 +19,13 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n = Integer.parseInt(in.nextLine());
-        Stack<Integer> prevStack = new Stack<>();
-        Stack<Integer> nextStack = new Stack<>();
-        for (int i = 0; i < n; i++) {
-            String str = in.nextLine();
-            operate(prevStack, nextStack, str);
-        }
+        String str1 = "abc";
+        String str2 = new String("abc");
+        String str3 = "abc";
+        String str4 = "a" + "b" + "c";
+        System.out.println(str1 == str2);
+        System.out.println(str1 == str3);
+        System.out.println(str1 == str4);
     }
 
     public static void operate(Stack<Integer> prevStack, Stack<Integer> nextStack, String str) {
@@ -169,5 +168,17 @@ public class Main {
         return head;
     }
 
+    public int[] dailyTemperatures(int[] T) {
+        int[] result = new int[T.length];
+        Stack<Integer> stack = new Stack<>();
+        stack.push(0);
+        for (int i = 1; i < T.length; i++) {
+            while (!stack.isEmpty() && T[i] > T[stack.peek()]) {
+                result[stack.peek()] = i - stack.pop();
+            }
+            stack.push(i);
+        }
+        return result;
+    }
 
 }

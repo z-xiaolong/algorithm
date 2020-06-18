@@ -1,19 +1,15 @@
 package leetcode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Stack;
 
 /**
  * @author long
  */
 public class LeetCode {
 
-    public static void main(String[] args) {
-        String str = "babad";
-
-        System.out.println(longestPalindrome(str));
-    }
-
-    //Definition for singly-linked list.
 
     public class ListNode {
         int val;
@@ -71,22 +67,6 @@ public class LeetCode {
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int m = nums1.length;
         int n = nums2.length;
-/*            if(m == 0){
-                if(n%2 == 0){
-                    return (nums2[n/2]+nums2[n/2+1])/2.0;
-                }
-                else if(n%2 == 1){
-                    return nums2[n/2+1]/1.0;
-                }
-            }
-            if(n == 0){
-                if(m%2 == 0){
-                    return (nums1[m/2]+nums1[m/2+1])/2.0;
-                }
-                else if(m%2 == 1){
-                    return nums1[m/2+1]/1.0;
-                }
-            }*/
         if (m > n) {
             int[] temp = nums1;
             nums1 = nums2;
@@ -202,5 +182,131 @@ public class LeetCode {
         return s.substring(subLeft / 2, subRight / 2 + 1);
     }
 
+    //70. 爬楼梯
+    public int climbStairs(int n) {
+        if (n == 0) return 0;
+        int one = 1;
+        int two = 1;
+        for (int i = 2; i <= n; i++) {
+            int temp = two;
+            two = two + one;
+            one = temp;
+        }
+        return two;
+    }
+
+    //1137. 第 N 个泰波那契数
+    public int tribonacci(int n) {
+        if (n == 0) return 0;
+        if (n == 1 || n == 2) return 1;
+        int T0 = 0;
+        int T1 = 1;
+        int T2 = 1;
+        for (int i = 3; i <= n; i++) {
+            int temp = T2;
+            T2 = T0 + T1 + T2;
+            T0 = T1;
+            T1 = temp;
+        }
+        return T2;
+    }
+
+
+    public static void backtrack(int i) {
+        System.out.println(i);
+        try {
+            backtrack(i + 1);
+        } catch (StackOverflowError error) {
+            error.printStackTrace();
+        }
+    }
+
+    public static int maximum(int a, int b) {
+        long sum = (long) a + (long) b;
+        long diff = (long) b - (long) a;
+        long abs_diff = (diff ^ (diff >> 63)) - (diff >> 63);
+        return (int) ((sum + abs_diff) / 2);
+    }
+
+    //14. 最长公共前缀
+    public String longestCommonPrefix(String[] strs) {
+        if (strs.length == 0) return "";
+        if (strs.length == 1) return strs[0];
+        String s1 = strs[0];
+        for (int i = 1; i < strs.length; i++) {
+            while (strs[i].indexOf(s1) != 0) {
+                s1 = s1.substring(0, s1.length() - 1);
+            }
+        }
+        return s1;
+    }
+
+    //面试题 02.07. 链表相交 执行用时 :3 ms, 在所有 Java 提交中击败了18.32%的用户
+    public ListNode getIntersectionNodeI(ListNode headA, ListNode headB) {
+        Stack<ListNode> stackA = new Stack<>();
+        Stack<ListNode> stackB = new Stack<>();
+        ListNode temp = headA;
+        while (temp != null) {
+            stackA.push(temp);
+            temp = temp.next;
+        }
+        temp = headB;
+        while (temp != null) {
+            stackB.push(temp);
+            temp = temp.next;
+        }
+        ListNode node = null;
+        while (!stackA.isEmpty() && !stackB.isEmpty()) {
+            ListNode a = stackA.pop();
+            ListNode b = stackB.pop();
+            if (a == b) node = a;
+            else break;
+        }
+        return node;
+    }
+
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) return null;
+        ListNode nodeA = headA;
+        ListNode nodeB = headB;
+        while (nodeA != nodeB) {
+            if (nodeA == null) nodeA = headB;
+            else nodeA = nodeA.next;
+            if (nodeB == null) nodeB = headA;
+            else nodeB = nodeB.next;
+        }
+        return nodeA;
+    }
+
+    public int exchangeBits(int num) {
+        return ((num & 0xaaaaaaaa) >> 1) | ((num & 0x55555555) << 1);
+    }
+
+
+    public boolean canPermutePalindrome(String s) {
+        int[] hash = new int[128];
+        for (int i = 0; i < s.length(); i++) {
+            hash[s.charAt(i)]++;
+        }
+        int count = 0;
+        for (int h : hash) {
+            if (h % 2 == 1) count++;
+            if (count > 1) return false;
+        }
+        return true;
+    }
+
+    public boolean isFlipedString(String s1, String s2) {
+        if (s1.length() != s2.length()) return false;
+        String s = s2 + s2;
+        return s.contains(s1);
+    }
+
+    public static void main(String[] args) {
+        int i = 16;
+        System.out.println(Integer.toBinaryString(~i));
+        System.out.println(Integer.toBinaryString(i));
+        System.out.println(Integer.toBinaryString(-17));
+    }
 }
 

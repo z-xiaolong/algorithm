@@ -1,9 +1,6 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @author long
@@ -302,11 +299,312 @@ public class LeetCode {
         return s.contains(s1);
     }
 
+
+    //67. 二进制求和
+    public String addBinary(String a, String b) {
+        StringBuilder builder = new StringBuilder();
+        int lenA = a.length() - 1;
+        int lenB = b.length() - 1;
+        int carry = 0;
+        while (lenA >= 0 && lenB >= 0) {
+            int charA = a.charAt(lenA) - '0';
+            int charB = b.charAt(lenB) - '0';
+            int sum = charA + charB + carry;
+            carry = sum / 2;
+            builder.append(sum % 2);
+            lenA--;
+            lenB--;
+        }
+        while (lenA >= 0) {
+            int charA = a.charAt(lenA) - '0';
+            int sum = charA + carry;
+            carry = sum / 2;
+            builder.append(sum % 2);
+            lenA--;
+        }
+        while (lenB >= 0) {
+            int charB = b.charAt(lenB) - '0';
+            int sum = charB + carry;
+            carry = sum / 2;
+            builder.append(sum % 2);
+            lenB--;
+        }
+        if (carry > 0) builder.append(carry);
+        return builder.reverse().toString();
+    }
+
+    //139. 单词拆分
+    public boolean wordBreak(String s, List<String> wordDict) {
+        int len = s.length();
+        Set<Integer> set = new HashSet<>();
+        for (String word : wordDict) {
+            set.add(hash(word, 0, word.length()));
+        }
+        boolean[] dp = new boolean[len + 1];
+        dp[0] = true;
+        for (int i = 1; i <= len; i++) {
+            for (int j = 0; j < i; j++) {
+                if (dp[j] && set.contains(hash(s, j, i))) {
+                    dp[i] = true;
+                    break;
+                }
+            }
+        }
+        return dp[len];
+    }
+
+    public int hash(String s, int left, int right) {
+        int hash = 0;
+        for (int i = left; i < right; i++) {
+            hash = hash * 33 + s.charAt(i);
+        }
+        return hash;
+    }
+
+
+    public boolean wordBreakI(String s, List<String> wordDict) {
+        int length = s.length();
+        boolean[] dp = new boolean[length + 1];
+        Set<String> words = new HashSet<>(wordDict);
+        List<Integer> set = new ArrayList<>();
+        set.add(0);
+        dp[0] = true;
+        for (int i = 1; i <= length; i++) {
+            for (int j : set) {
+                String w = s.substring(j, i);
+                if (wordDict.contains(w)) {
+                    dp[i] = true;
+                    set.add(i);
+                    break;
+                }
+            }
+        }
+        return dp[length];
+    }
+
+    //面试题 02.01. 移除重复节点
+    public ListNode removeDuplicateNodes(ListNode head) {
+        if (head == null) return null;
+        Set<Integer> set = new HashSet<>();
+        ListNode temp = head;
+        set.add(temp.val);
+        while (temp.next != null) {
+            if (set.contains(temp.next.val)) {
+                temp.next = temp.next.next;
+                continue;
+            }
+            set.add(temp.next.val);
+            temp = temp.next;
+        }
+        return head;
+    }
+
+
+    //41. 缺失的第一个正数 你的算法的时间复杂度应为O(n)，并且只能使用常数级别的额外空间。
+    public int firstMissingPositiveI(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            if (num > 0) set.add(num);
+        }
+        int i = 1;
+        while (set.contains(i)) {
+            i++;
+        }
+        return i;
+    }
+
+    public int firstMissingPositive(int[] nums) {
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            while (nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] != nums[i]) {
+                int temp = nums[nums[i] - 1];
+                nums[nums[i] - 1] = nums[i];
+                nums[i] = temp;
+            }
+        }
+        for (int i = 0; i <= n; i++) {
+            if (nums[i] != i + 1) return i + 1;
+        }
+        return n + 1;
+    }
+
+    //209. 长度最小的子数组
+    public int minSubArrayLen(int s, int[] nums) {
+        int left;
+        int right;
+        int min = Integer.MAX_VALUE;
+        int sum = 0;
+        for (left = 0, right = 0; right < nums.length; right++) {
+            sum += nums[right];
+            while (sum >= s) {
+                min = Math.min(min, right - left + 1);
+                sum -= nums[left];
+                left++;
+            }
+        }
+        return min == Integer.MAX_VALUE ? 0 : min;
+    }
+
+    public int findKthLargest(int[] nums, int k) {
+        int left = 0;
+        int right = nums.length - 1;
+        int index = partition(nums, left, right);
+        while (index != k - 1) {
+            if (index > k - 1) {
+                right = index - 1;
+            } else if (index < k - 1) {
+                left = index + 1;
+            } else {
+                break;
+            }
+            index = partition(nums, left, right);
+        }
+        return nums[index];
+    }
+
+    public int partition(int[] nums, int left, int right) {
+        int mid = (left + right) >> 1;
+        int temp = nums[mid];
+        nums[mid] = nums[left];
+        nums[left] = temp;
+        int pivotal = nums[left];
+        while (left < right) {
+            while (left < right && nums[right] <= pivotal) {
+                right--;
+            }
+            nums[left] = nums[right];
+            while (left < right && nums[left] >= pivotal) {
+                left++;
+            }
+            nums[right] = nums[left];
+        }
+        nums[left] = pivotal;
+        return left;
+    }
+
+    //剑指 Offer 09. 用两个栈实现队列
+    class CQueue {
+
+        private final Stack inStack;
+        private final Stack outStack;
+
+        public CQueue() {
+            inStack = new Stack();
+            outStack = new Stack();
+        }
+
+        public void appendTail(int value) {
+            inStack.push(value);
+        }
+
+        public int deleteHead() {
+            if (!outStack.isEmpty()) {
+                return outStack.pop();
+            } else {
+                while (!inStack.isEmpty()) {
+                    outStack.push(inStack.pop());
+                }
+            }
+            if (outStack.isEmpty()) return -1;
+            return outStack.pop();
+        }
+
+        class Stack {
+            private int top;
+            private int[] stack;
+
+            public Stack() {
+                stack = new int[16];
+                top = 0;
+            }
+
+            public void push(int num) {
+                if (top >= stack.length) {
+                    grow();
+                }
+                stack[top] = num;
+                top++;
+            }
+
+            public void grow() {
+                int oldSize = stack.length;
+                int newSize = oldSize + oldSize << 1;
+                stack = Arrays.copyOf(stack, newSize);
+            }
+
+            public int pop() {
+                if (top == 0) return -1;
+                return stack[--top];
+            }
+
+            public boolean isEmpty() {
+                return top == 0;
+            }
+        }
+    }
+
+    //32. 最长有效括号
+    public int longestValidParentheses(String s) {
+        int n = s.length();
+        if (n == 0) return 0;
+        int max = 0;
+        Stack<Integer> stack = new Stack<>();
+        stack.push(-1);
+        int i = 0;
+        while (i < n) {
+            char c = s.charAt(i);
+            if (c == ')' && stack.peek() >= 0 && s.charAt(stack.peek()) == '(') {
+                stack.pop();
+                max = Math.max(max, i - stack.peek());
+            } else {
+                stack.push(i);
+            }
+            i++;
+        }
+        return max;
+    }
+
+
+    //面试题 02.05. 链表求和
+    public ListNode addTwoNumbersI(ListNode l1, ListNode l2) {
+        ListNode head = new ListNode(-1);
+        ListNode temp = head;
+        int carry = 0;
+        while (l1 != null && l2 != null) {
+            int sum = l1.val + l2.val + carry;
+            l1.val = sum % 10;
+            carry = sum / 10;
+            temp.next = l1;
+            l1 = l1.next;
+            l2 = l2.next;
+            temp = temp.next;
+        }
+        while (l2 != null) {
+            int sum = carry + l2.val;
+            l2.val = sum % 10;
+            carry = sum / 10;
+            temp.next = l2;
+            l2 = l2.next;
+            temp = temp.next;
+        }
+        while (l1 != null) {
+            int sum = carry + l1.val;
+            l1.val = sum % 10;
+            carry = sum / 10;
+            temp.next = l1;
+            l1 = l1.next;
+            temp = temp.next;
+        }
+        if (carry > 0) {
+            temp.next = new ListNode(carry);
+        }
+        return head.next;
+    }
+
     public static void main(String[] args) {
-        int i = 16;
-        System.out.println(Integer.toBinaryString(~i));
-        System.out.println(Integer.toBinaryString(i));
-        System.out.println(Integer.toBinaryString(-17));
+        int[] nums = new int[]{2, 3, 1, 2, 4, 3};
+        LeetCode leetCode = new LeetCode();
+        leetCode.longestValidParentheses(")()())()()(");
     }
 }
 

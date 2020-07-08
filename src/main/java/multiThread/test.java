@@ -1,5 +1,8 @@
 package multiThread;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * @Author long
  * @Date 2020/1/2 11:22
@@ -21,6 +24,7 @@ public class test {
     };
 
     public static void main(String[] args) {
+        ReentrantLock reentrantLock = new ReentrantLock(true);
         thread1.start();
         try {
             Thread.sleep(5000);

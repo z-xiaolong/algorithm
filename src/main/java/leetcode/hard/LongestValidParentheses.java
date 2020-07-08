@@ -17,6 +17,28 @@ public class LongestValidParentheses {
     }
 
 
+    //DP
+    public int longestValidParenthesesII(String s) {
+        int n = s.length();
+        if (n == 0) return 0;
+        int[] dp = new int[n];
+        int max = 0;
+        for (int i = 1; i < n; i++) {
+            if (s.charAt(i) == ')') {
+                int j = i - dp[i - 1] - 1;
+                if (j >= 0 && s.charAt(j) == '(') {
+                    dp[i] = dp[i - 1] + 2;
+                    if (j - 1 >= 0) {
+                        dp[i] += dp[j - 1];
+                    }
+                }
+                max = Math.max(max, dp[i]);
+            }
+        }
+        return max;
+    }
+
+
     //dp: 执行用时 :2 ms, 在所有 Java 提交中击败了91.92%的用户
     public int longestValidParentheses(String s) {
         int n = s.length();

@@ -8,5 +8,11 @@ package leetcode.multiThread;
  **/
 
 public class ThreadLocalDemo {
+
+    public static void main(String[] args) {
+
+    }
+
+
     ThreadLocal<String> local = new ThreadLocal<>();
 }

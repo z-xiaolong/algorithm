@@ -8,7 +8,7 @@ import java.util.*;
 public class LeetCode {
 
 
-    public class ListNode {
+    public static class ListNode {
         int val;
         ListNode next;
 
@@ -599,6 +599,21 @@ public class LeetCode {
             temp.next = new ListNode(carry);
         }
         return head.next;
+    }
+
+
+    //120. 三角形最小路径和
+    public int minimumTotal(List<List<Integer>> triangle) {
+        int n = triangle.size();
+        for (int i = n - 2; i >= 0; i--) {
+            List<Integer> list = triangle.get(i);
+            List<Integer> prev = triangle.get(i + 1);
+            for (int j = 0; j < list.size(); j++) {
+                int temp = list.get(j) + Math.min(prev.get(j), prev.get(j + 1));
+                list.set(j, temp);
+            }
+        }
+        return triangle.get(0).get(0);
     }
 
     public static void main(String[] args) {

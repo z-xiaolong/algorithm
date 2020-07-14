@@ -118,8 +118,6 @@ public class FindInMountainArray {
     }
 
 
-
-
     interface MountainArray {
         public int get(int index);
 

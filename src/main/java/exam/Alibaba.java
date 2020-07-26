@@ -1,8 +1,10 @@
 package exam;
 
-import java.util.Comparator;
-import java.util.PriorityQueue;
-import java.util.Scanner;
+import leetcode.entity.ListNode;
+import leetcode.entity.TreeNode;
+import org.junit.Test;
+
+import java.util.*;
 
 /**
  * @Author long
@@ -12,10 +14,6 @@ import java.util.Scanner;
  **/
 
 public class Alibaba {
-
-    public static void main(String[] args) {
-        maxExpectation();
-    }
 
 
     //内存空间O（n）
@@ -65,5 +63,213 @@ public class Alibaba {
         }
         System.out.println(String.format("%.6f", e));//四舍五入
     }
+
+
+    //2020年7月20日
+    @Test
+    public void solutionI() {
+        Scanner in = new Scanner(System.in);
+        int t = in.nextInt();
+        for (int i = 0; i < t; i++) {
+            long n = in.nextLong();
+            long k = in.nextLong();
+            solution(n, k);
+        }
+    }
+
+    public static void solution(long n, long k) {
+        if (n % k != 0) {
+            System.out.println(-1);
+        }
+        long common = n / k;
+        if (common <= 3) {
+            System.out.println(-1);
+        }
+
+    }
+
+    public boolean isCommon(long a, long b) {
+        return false;
+    }
+
+
+    public static void main(String[] args) {
+        solutionII();
+    }
+
+    @Test
+    public static void solutionII() {
+        Scanner in = new Scanner(System.in);
+        int t = in.nextInt();
+        for (int i = 0; i < t; i++) {
+            int left = in.nextInt();
+            int right = in.nextInt();
+            solution(left, right);
+        }
+    }
+
+    static int[] dp = new int[1000000000];
+
+    public static void dp() {
+        int cnt = 0;
+        for (int i = 1; i <= dp.length; i++) {
+            if (isLucky(i)) {
+                cnt++;
+                dp[i] = cnt;
+            }
+        }
+    }
+
+    public static void solution(int left, int right) {
+        int cnt = dp[right] - dp[left];
+        System.out.println(cnt);
+    }
+
+    public static boolean isLucky(int num) {
+        while (num > 10) {
+            num = nextNum(num);
+        }
+        return num == 7;
+    }
+
+    public static int nextNum(int num) {
+        int newNum = 0;
+        String str = String.valueOf(num);
+        for (int i = 1; i < str.length(); i++) {
+            int bit = str.charAt(i) - str.charAt(i - 1);
+            newNum = newNum * 10 + Math.abs(bit);
+        }
+        return newNum;
+    }
+
+
+    public int minDepth(TreeNode root) {
+        if (root == null) return 0;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        int k = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            while (size > 0) {
+                TreeNode node = queue.poll();
+                if (node.right == null && node.left == null) {
+                    return k;
+                }
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+                if (node.right != null) {
+                    queue.offer(node.right);
+                }
+                size--;
+            }
+            k++;
+        }
+        return k;
+    }
+
+
+    class EmailSystem {
+        List<Email> emailList = new ArrayList<>(1024);
+        Map<String, Set<Email>> emailMap = new HashMap<>();
+
+        public List<Email> findEmails(String name, String key, Long startTime, Long endTime) {
+            List<Email> list = emailList;
+            if (startTime != null && endTime != null) {
+                list = findEmailsByTimestamp(startTime, endTime);
+            }
+            if (name != null) {
+                list = findEmailByName(list, name);
+            }
+            if (key != null) {
+                list = findEmailByKey(list, key);
+            }
+            return list;
+        }
+
+        public List<Email> findEmailByName(List<Email> list, String name) {
+            if (!emailMap.containsKey(name)) {
+                return null;
+            }
+            if (list == emailList) {
+                list = new ArrayList<>(emailMap.get(name));
+            }
+            List<Email> res = new ArrayList<>();
+            for (Email email : list) {
+                if (email.name.contains(name)) {
+                    res.add(email);
+                }
+            }
+            return res;
+        }
+
+        public List<Email> findEmailByKey(List<Email> list, String key) {
+            List<Email> res = new ArrayList<>();
+            for (Email email : list) {
+                if (email.key.indexOf(key) > 0) {
+                    res.add(email);
+                }
+            }
+            return res;
+        }
+
+        public List<Email> findEmailsByTimestamp(long startTime, long endTime) {
+            if (startTime > endTime) return null;
+            int start = binarySearchEmail(startTime);
+            int size = emailList.size();
+            List<Email> list = new ArrayList<>();
+            long cur = emailList.get(start).timestamp;
+            while (cur >= startTime && cur <= endTime) {
+                list.add(emailList.get(start));
+                start++;
+                if (start == size) break;
+                cur = emailList.get(start).timestamp;
+            }
+            return list;
+        }
+
+
+        public int binarySearchEmail(long startTime) {
+            int left = 0;
+            int right = emailList.size() - 1;
+            while (left < right) {
+                int mid = left + ((right - left) >> 1);
+                if (emailList.get(mid).timestamp > startTime) {
+                    right = mid - 1;
+                } else if (emailList.get(mid).timestamp < startTime) {
+                    left = mid + 1;
+                } else {
+                    right = mid;
+                }
+            }
+            return left;
+        }
+
+
+        public void addEmail(String name, String key, long timestamp) {
+            Email email = new Email(name, key, timestamp);
+            emailList.add(email);
+            if (!emailMap.containsKey(name)) {
+                emailMap.put(name, new HashSet<>());
+            }
+            Set<Email> set = emailMap.get(name);
+            set.add(email);
+        }
+
+
+        class Email {
+            String name;
+            String key;
+            long timestamp;
+
+            public Email(String name, String key, long timestamp) {
+                this.name = name;
+                this.key = key;
+                this.timestamp = timestamp;
+            }
+
+        }
+    }
+
 
 }

@@ -616,6 +616,77 @@ public class LeetCode {
         return triangle.get(0).get(0);
     }
 
+
+    //1025. 除数博弈
+    public boolean divisorGame(int N) {
+        if (N <= 2) return N == 2;
+        boolean[] dp = new boolean[N + 1];
+        dp[1] = false;
+        dp[2] = true;
+        for (int i = 3; i <= N; i++) {
+            for (int j = 1; j * j < i; j++) {
+                if (i % j == 0 && !dp[i - j]) {
+                    dp[i] = true;
+                    break;
+                }
+            }
+        }
+        return dp[N];
+    }
+
+
+    //130. 被围绕的区域
+    public void solve(char[][] board) {
+        int n = board.length;
+        if (n == 0) return;
+        int m = board[0].length;
+        boolean[][] flag = new boolean[n][m];
+        for (int i = 0; i < n; i++) {
+            if (board[i][0] == 'O') {
+                dfs(flag, board, i, 0);
+            }
+            if (board[i][m - 1] == 'O') {
+                dfs(flag, board, i, m - 1);
+            }
+        }
+
+        for (int i = 0; i < m; i++) {
+            if (board[0][i] == 'O') {
+                dfs(flag, board, 0, i);
+            }
+            if (board[n - 1][i] == 'O') {
+                dfs(flag, board, n - 1, i);
+            }
+        }
+        for (int i = 1; i < n - 1; i++) {
+            for (int j = 1; j < m - 1; j++) {
+                if (board[i][j] == 'O' && !flag[i][j]) {
+                    board[i][j] = 'X';
+                }
+            }
+        }
+    }
+
+    public void dfs(boolean[][] flag, char[][] board, int i, int j) {
+        if (flag[i][j]) return;
+        flag[i][j] = true;
+        int n = board.length;
+        int m = board[0].length;
+        if (i + 1 < n && !flag[i + 1][j] && board[i + 1][j] == 'O') {
+            dfs(flag, board, i + 1, j);
+        }
+        if (j + 1 < m && !flag[i][j + 1] && board[i][j + 1] == 'O') {
+            dfs(flag, board, i, j + 1);
+        }
+        if (i - 1 >= 0 && !flag[i - 1][j] && board[i - 1][j] == 'O') {
+            dfs(flag, board, i - 1, j);
+        }
+        if (j - 1 >= 0 && !flag[i][j - 1] && board[i][j - 1] == 'O') {
+            dfs(flag, board, i, j - 1);
+        }
+
+    }
+
     public static void main(String[] args) {
         int[] nums = new int[]{2, 3, 1, 2, 4, 3};
         LeetCode leetCode = new LeetCode();

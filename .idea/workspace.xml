@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6df4b8cd-5496-4b5a-a160-4ae8ba6154ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_73.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_3_4_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_all_4_1_45_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_19.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_2_0_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_2_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_2_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjdk_jol_jol_core_0_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_7_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_30.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_30.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_simple_1_7_30.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_smartboot_socket_aio_core_1_4_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_3_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_2_8_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_2_8_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_2_8_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_2_8_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_2_8_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_8_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_2_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_2_8_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_8_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_26.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/algorithm.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/algorithm/Loading.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/algorithm/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dataStructure/hashMapDemo/ConcurrentHashMapTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/Age.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/Email.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/Job.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/Names.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/Phone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/UserFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/redis/Connector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/redis/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/chain/demo/AbstractLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/chain/demo/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/chain/demo/ConsoleLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/chain/demo/FileLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/command/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/command/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/command/LightOffCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/command/LightOnCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/command/LightReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/command/NullCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/command/RemoteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/interpreter/AddExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/interpreter/Calculator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/interpreter/ClientTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/interpreter/Expression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/interpreter/SubExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/interpreter/SymbolExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/interpreter/VarExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/mediator/Alarm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/mediator/ClientTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/mediator/CoffeeMachine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/mediator/Colleague.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/mediator/ConcreteMediator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/mediator/Curtains.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/mediator/Mediator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/mediator/TV.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/memento/CareTaker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/memento/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/memento/Memento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/memento/Originator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/memento/games/CareTaker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/memento/games/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/memento/games/GameRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/memento/games/Memento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/observer/BaiDuObserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/observer/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/observer/CurrentConditions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/observer/Observer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/observer/Subject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/observer/WeatherData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/observer/old/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/observer/old/CurrentConditions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/observer/old/WeatherData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/state/CanRaffleState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/state/ClientTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/state/DispenseOutState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/state/DispenseState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/state/NoRaffleState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/state/RaffleActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/state/State.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/strategy/BadFlyBehavior.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/strategy/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/strategy/Duck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/strategy/FlyBehavior.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/strategy/GaGaQuackBehavior.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/strategy/GeGeQuackBehavior.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/strategy/GoodFlyBehavior.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/strategy/NoFlayBehavior.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/strategy/NoQuackBehavior.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/strategy/PekingDuck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/strategy/QuackBehavior.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/strategy/ToyDuck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/strategy/WildDuck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/strategy/jdk/Strategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/visitor/Action.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/visitor/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/visitor/Fail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/visitor/Man.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/visitor/ObjectStructure.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/visitor/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/visitor/Success.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/visitor/Wait.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/visitor/Woman.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/visitor/demo/BusinessReport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/visitor/demo/CEOVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/visitor/demo/CTOVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/visitor/demo/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/visitor/demo/Engineer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/visitor/demo/Manager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/visitor/demo/Staff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/behavior/visitor/demo/Visitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/creation/builder/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/creation/builder/CommonHouse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/creation/builder/House.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/creation/builder/HouseDirector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/creation/builder/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/creation/factory/simpleFactory/CheesePizza.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/creation/factory/simpleFactory/OrderPizza.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/creation/factory/simpleFactory/PizzaStore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/adapter/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/adapter/DispatchServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/adapter/HandlerAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/bridge/Brand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/bridge/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/bridge/FoldedPhone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/bridge/Phone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/bridge/UprightPhone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/bridge/Vivo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/composite/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/composite/College.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/composite/Department.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/composite/OrganizationComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/composite/University.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/decorator/Chocolate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/decorator/Coffee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/decorator/CoffeeBar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/decorator/Decorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/decorator/Drink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/decorator/Espresso.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/decorator/Milk.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/decorator/ShortBlack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/decorator/Soy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/facade/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/facade/DVDPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/facade/HomeTheaterFacade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/facade/Popcorn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/facade/Projector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/facade/Screen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/facade/Stereo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/facade/TheaterLight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/flyweight/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/flyweight/ConcreteWebSite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/flyweight/WebSite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/flyweight/WebSiteFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/ITeacherDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/ProxyFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/TeacherDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/cglib/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/cglib/ProxyFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/cglib/TeacherDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/dynamicProxy/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/dynamicProxy/SellHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/dynamicProxy/Test/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/dynamicProxy/Test/InterfaceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/dynamicProxy/Test/InterfaceServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/dynamicProxy/Test/ProxyFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/dynamicProxy/Test/ProxyHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/dynamicProxy/UsbKingFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/dynamicProxy/UsbSell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/reflect/HelloService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/reflect/HelloServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designMode/structure/proxy/reflect/TestApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/ApesTutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/BeiKe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/BiLiBiLi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/ChuBao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/Ctrip.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/DaJiang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/DiDi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/Dji.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/DongFang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/Exam360.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/Flytek.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/GaoTu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/HuanJu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/Iqiyi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/Jibite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/PDD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/QiAnXin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/Shopee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/ShunFeng.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/Tiger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/WangYi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/XiaoHongShu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/XiaoMi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/XwBank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/ZhongXing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/ZuiYou.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javaCore/DynamicProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javaCore/MyCalendar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javaCore/Outer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javaCore/multithread/ListDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javaCore/reflect/ReflectTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/leetcode/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/leetcode/contest/Contest201.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/leetcode/easy/ConvertInteger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/leetcode/hard/IsNumber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/leetcode/hard/JudgePoint24.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/leetcode/hard/MinimalSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/leetcode/hard/PalindromePairs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/leetcode/hard/RecoverTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/leetcode/hard/RemoveBoxes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/leetcode/hard/SmallestRange.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/leetcode/hard/TallestBillboard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/leetcode/medium/CloneGraph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/leetcode/medium/CountPairs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/leetcode/medium/FindSubsequences.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/leetcode/medium/Multiply.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/leetcode/medium/Rob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/multiThread/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/multiThread/NonReentrantLock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/multiThread/ThreadPoolDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/multiThread/sync/SyncDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/spring/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/spring/bean/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/spring/bean/UserFactoryBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bean.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AcWing/AwardAllot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AcWing/AwardAllot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algorithm/knapsackProblem/ZeroOnePack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithm/knapsackProblem/ZeroOnePack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/DBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DBService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DBUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designMode/creation/factory/simpleFactory/GreekPizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designMode/creation/factory/simpleFactory/GreekPizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designMode/creation/factory/simpleFactory/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designMode/creation/factory/simpleFactory/Pizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designMode/creation/factory/simpleFactory/SimpleFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designMode/creation/factory/simpleFactory/SimpleFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designMode/creation/singleton/EnumSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designMode/creation/singleton/EnumSingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designMode/creation/singleton/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designMode/creation/singleton/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exam/Alibaba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/Alibaba.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exam/JiDong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/JiDong.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exam/MeiTuan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/MeiTuan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exam/Tencent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/Tencent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/LeetCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/leetcode/LeetCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/multiThread/lockDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiThread/lockDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/multiThread/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiThread/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/network/nio/MultiplexerTimeServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/network/nio/MultiplexerTimeServer.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1fFXpx1R1MJId4fgsvuoM7BvESJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/designMode/behavior/state" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\algorithm\src\main\resources" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="net.sf.cglib.proxy" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="designMode.behavior.observer" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="designMode.behavior.observer" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\algorithm\src\main\java\designMode\behavior\state" />
+      <recent name="F:\algorithm\src\main\java\designMode\behavior\interpreter" />
+      <recent name="F:\algorithm\src\main\java\designMode\behavior\mediator\smarthouse" />
+      <recent name="F:\algorithm\src\main\java\designMode\behavior\mediator" />
+      <recent name="F:\algorithm\src\main\java\designMode\structure\adapter" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ZuiYou">
+    <configuration name="BeiKe" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="exam.BeiKe" />
+      <module name="algorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="exam.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GaoTu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="exam.GaoTu" />
+      <module name="algorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="exam.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="database.redis.Main" />
+      <module name="algorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="database.redis.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="spring.Main" />
+      <module name="algorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="spring.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Outer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javaCore.Outer" />
+      <module name="algorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javaCore.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZuiYou" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="exam.ZuiYou" />
+      <module name="algorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="exam.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BSP.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ZuiYou" />
+        <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.BeiKe" />
+        <item itemvalue="Application.Outer" />
+        <item itemvalue="Application.GaoTu" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_INTERFACES,ALPHA_COMPARATOR" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6df4b8cd-5496-4b5a-a160-4ae8ba6154ca" name="Default Changelist" comment="" />
+      <created>1595815001161</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595815001161</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="503" y="44" key="#Auto_Import" timestamp="1598512617927">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="503" y="44" key="#Auto_Import/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1598512617927" />
+    <state x="503" y="44" key="#Auto_Import/0.0.1536.824@0.0.1536.824" timestamp="1597319242517" />
+    <state x="629" y="275" key="#Notifications" timestamp="1595815254685">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="629" y="275" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1595815254685" />
+    <state x="427" y="230" key="#com.intellij.codeInsight.template.impl.EditVariableDialog" timestamp="1595815576629">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="427" y="230" key="#com.intellij.codeInsight.template.impl.EditVariableDialog/0.0.1536.824@0.0.1536.824" timestamp="1595815576629" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598881179713">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1598881179713" />
+    <state x="570" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1599457242846">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="570" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1599457242846" />
+    <state x="570" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1598012605469" />
+    <state x="435" y="336" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1598863037061">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="435" y="336" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1598863037061" />
+    <state x="435" y="336" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1598530966204" />
+    <state x="511" y="281" width="520" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1598864609689">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="511" y="281" width="520" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1598864609689" />
+    <state x="204" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1598598170615">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="204" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1598598170615" />
+    <state width="443" height="466" key="DebuggerActiveHint" timestamp="1596350972818">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="443" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1596350972818" />
+    <state x="541" y="166" key="FileChooserDialogImpl" timestamp="1599120389943">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="541" y="166" key="FileChooserDialogImpl/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1599120389943" />
+    <state width="1495" height="230" key="GridCell.Tab.0.bottom" timestamp="1599740426069">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1495" height="287" key="GridCell.Tab.0.bottom/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1599553032120" />
+    <state width="1490" height="380" key="GridCell.Tab.0.bottom/0.0.1536.824/0.1080.1920.1040@0.0.1536.824" timestamp="1596685458757" />
+    <state width="1490" height="380" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1596703318224" />
+    <state width="1495" height="230" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599740426069" />
+    <state width="1495" height="230" key="GridCell.Tab.0.center" timestamp="1599740426069">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1495" height="287" key="GridCell.Tab.0.center/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1599553032120" />
+    <state width="1490" height="380" key="GridCell.Tab.0.center/0.0.1536.824/0.1080.1920.1040@0.0.1536.824" timestamp="1596685458757" />
+    <state width="1490" height="380" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1596703318224" />
+    <state width="1495" height="230" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1599740426069" />
+    <state width="1495" height="230" key="GridCell.Tab.0.left" timestamp="1599740426069">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1495" height="287" key="GridCell.Tab.0.left/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1599553032120" />
+    <state width="1490" height="380" key="GridCell.Tab.0.left/0.0.1536.824/0.1080.1920.1040@0.0.1536.824" timestamp="1596685458757" />
+    <state width="1490" height="380" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1596703318224" />
+    <state width="1495" height="230" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1599740426069" />
+    <state width="1495" height="230" key="GridCell.Tab.0.right" timestamp="1599740426069">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1495" height="287" key="GridCell.Tab.0.right/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1599553032120" />
+    <state width="1490" height="380" key="GridCell.Tab.0.right/0.0.1536.824/0.1080.1920.1040@0.0.1536.824" timestamp="1596685458757" />
+    <state width="1490" height="380" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1596703318224" />
+    <state width="1495" height="230" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1599740426069" />
+    <state width="1495" height="271" key="GridCell.Tab.1.bottom" timestamp="1599739588117">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1495" height="271" key="GridCell.Tab.1.bottom/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1599466408266" />
+    <state width="1490" height="323" key="GridCell.Tab.1.bottom/0.0.1536.824/0.1080.1920.1040@0.0.1536.824" timestamp="1596683009014" />
+    <state width="1495" height="271" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599739588117" />
+    <state width="1495" height="271" key="GridCell.Tab.1.center" timestamp="1599739588117">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1495" height="271" key="GridCell.Tab.1.center/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1599466408266" />
+    <state width="1490" height="323" key="GridCell.Tab.1.center/0.0.1536.824/0.1080.1920.1040@0.0.1536.824" timestamp="1596683009014" />
+    <state width="1495" height="271" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1599739588117" />
+    <state width="1495" height="271" key="GridCell.Tab.1.left" timestamp="1599739588117">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1495" height="271" key="GridCell.Tab.1.left/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1599466408266" />
+    <state width="1490" height="323" key="GridCell.Tab.1.left/0.0.1536.824/0.1080.1920.1040@0.0.1536.824" timestamp="1596683009014" />
+    <state width="1495" height="271" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1599739588117" />
+    <state width="1495" height="271" key="GridCell.Tab.1.right" timestamp="1599739588117">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1495" height="271" key="GridCell.Tab.1.right/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1599466408266" />
+    <state width="1490" height="323" key="GridCell.Tab.1.right/0.0.1536.824/0.1080.1920.1040@0.0.1536.824" timestamp="1596683009014" />
+    <state width="1495" height="271" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1599739588117" />
+    <state x="113" y="106" key="SettingsEditor" timestamp="1595816003798">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="113" y="106" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1595816003798" />
+    <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1598791136372">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="775" height="419" key="XDebugger.FullValuePopup/0.0.1536.824@0.0.1536.824" timestamp="1598791136372" />
+    <state x="2" y="32" key="new project wizard" timestamp="1599120395203">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="2" y="32" key="new project wizard/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1599120395203" />
+    <state x="464" y="159" key="refactoring.ChangeSignatureDialog" timestamp="1597285943819">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="464" y="159" key="refactoring.ChangeSignatureDialog/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1597285943819" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1599204931847">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1599204931847" />
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1596006566707" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1599634456665">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1599032359159" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1599634456665" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/exam/ApesTutor.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/leetcode/hard/IsNumber.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/designMode/structure/proxy/Main.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://D:/java/JDK1.8/src.zip!/java/util/Arrays.java</url>
+          <line>1431</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://D:/java/JDK1.8/src.zip!/java/util/concurrent/ConcurrentLinkedQueue.java</url>
+          <line>327</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo typeName="algorithm.Trie" fieldName="count" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="((String)((InterfaceServiceImpl)((ProxyHandler)this.h).target).name).value" custom="designMode.structure.proxy.dynamicProxy.Test.InterfaceServiceImpl,java.lang.reflect.Proxy,designMode.structure.proxy.dynamicProxy.Test.ProxyHandler,java.lang.String" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/algorithm$Strategy.ic" NAME="Strategy Coverage Results" MODIFIED="1599026998954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>designMode.behavior.strategy.jdk.*</FILTER>
+    </SUITE>
+  </component>
+</project>

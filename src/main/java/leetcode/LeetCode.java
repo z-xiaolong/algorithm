@@ -1,5 +1,8 @@
 package leetcode;
 
+import com.sun.jndi.cosnaming.CNCtx;
+import leetcode.entity.TreeNode;
+
 import java.util.*;
 
 /**
@@ -687,10 +690,265 @@ public class LeetCode {
 
     }
 
-    public static void main(String[] args) {
-        int[] nums = new int[]{2, 3, 1, 2, 4, 3};
-        LeetCode leetCode = new LeetCode();
-        leetCode.longestValidParentheses(")()())()()(");
+    public void flatten(TreeNode root) {
+        if (root == null) return;
+        TreeNode temp = new TreeNode(-1);
+        dfs(root, temp);
     }
+
+    public TreeNode dfs(TreeNode node, TreeNode preNode) {
+        if (node == null) return preNode;
+        TreeNode right = node.right;
+        preNode.right = node;
+        TreeNode next = dfs(node.left, node);
+        node.left = null;
+        return dfs(right, next);
+    }
+
+
+    public static int solution(int N, int k, int[] goods) {
+        Arrays.sort(goods);
+        int index = 0;
+        int count = 0;
+        int n = goods.length;
+        while (index + k <= n) {
+            if (goods[index] > 0) {
+                goods[index]--;
+                for (int i = n - 1; i > n - k; i--) {
+                    goods[i]--;
+                }
+                Arrays.sort(goods);
+                count++;
+            }
+            if (goods[index] == 0) index++;
+        }
+        return count;
+    }
+
+
+    public static int solution(int n) {
+        if (n <= 7) return n;
+        int[][] dp = new int[n + 1][n + 1];
+        for (int j = 1; j <= n; j++) {
+            for (int i = 0; i <= j; i++) {
+                dp[i][j] = Integer.MAX_VALUE;
+                if (i == 0) {
+                    dp[0][j] = dp[0][j - 1] + 1;
+                    continue;
+                }
+                if (i == j) {
+                    dp[i][j] = dp[0][j] + 6;
+                    continue;
+                }
+                dp[i][j] = Math.min(dp[i][j], dp[i][j - 1] + 1);
+                if (j - i >= i)
+                    dp[i][j] = Math.min(dp[i][j], dp[i][j - i] + 2);
+                if (j == i * 2) {
+                    for (int k = 0; k <= i; k++) {
+                        dp[i][j] = Math.min(dp[i][j], dp[k][i] + 7);
+                    }
+                }
+            }
+        }
+        int min = Integer.MAX_VALUE;
+        for (int i = 1; i <= n / 2; i++) {
+            min = Math.min(min, dp[i][n]);
+        }
+        return min;
+    }
+
+
+    public static int minSumOfLengths(int[] A, int t) {
+        int n = A.length;
+        int[] dp = new int[n];
+        int min = n;
+        Map<Integer, int[]> hashMap = new HashMap<>();
+        dp[0] = A[0];
+        for (int i = 1; i < n; i++) {
+            dp[i] = dp[i - 1] + A[i];
+        }
+
+
+        return min;
+    }
+
+    public static void solution() {
+        Scanner in = new Scanner(System.in);
+        String n = in.nextLine();
+        String x = in.nextLine();
+    }
+
+
+    public static void decode(String x) {
+        int i = 0;
+        int n = x.length();
+        int res = 0;
+        int count = 0;
+        while (i < n) {
+            String sub = x.substring(i, i + 4);
+            int num = 0;
+            int temp = sub.charAt(2) - '0';
+            if (temp > 16) temp -= 7;
+            num = num * 16 + temp;
+            temp = sub.charAt(3) - '0';
+            if (temp > 16) temp -= 7;
+            num = num * 16 + temp;
+            if (num > 128) num -= 128;
+            res = num * (1 << count) + res;
+            count += 7;
+            i += 4;
+        }
+        System.out.println(res);
+    }
+
+    public static void encode(String n) {
+        int num = Integer.parseInt(n);
+        StringBuilder builder = new StringBuilder();
+        while (num > 128) {
+            int temp = num % 128 + 128;
+            String hex = Integer.toHexString(temp);
+            if (hex.length() == 1) hex = "0" + hex;
+            builder.append("0X").append(hex);
+            num = num >> 7;
+        }
+        String hex = Integer.toHexString(num);
+        if (hex.length() == 1) hex = "0" + hex;
+        builder.append("0X").append(hex);
+        System.out.println(builder.toString().toUpperCase());
+    }
+
+
+    public List<String> generateParenthesis(int n) {
+        List<String> result = new LinkedList<>();
+        char[] chars = new char[n * 2];
+
+        return result;
+    }
+
+    public void dfs(int index, List<String> list, char[] chars, int left, int right) {
+        if (left * 2 == chars.length) {
+            for (int i = 0; i < right; i++) {
+                chars[index] = ')';
+                index++;
+            }
+            list.add(new String(chars));
+        } else if (left == right) {
+            chars[index] = '(';
+            dfs(index + 1, list, chars, left + 1, right);
+        } else if (left > right) {
+            chars[index] = '(';
+            dfs(index + 1, list, chars, left + 1, right);
+            chars[index] = ')';
+            dfs(index + 1, list, chars, left, right + 1);
+        }
+    }
+
+
+    public static List<Integer> findK(int[] arr) {
+        int n = arr.length;
+        List<Integer> left_max = new ArrayList<>();
+        int leftMax = arr[0];
+        List<Integer> right_min = new ArrayList<>();
+        int rightMin = arr[n - 1];
+        for (int i = 0; i < n; i++) {
+            if (arr[i] > leftMax) leftMax = arr[i];
+            left_max.add(leftMax);
+        }
+        for (int i = n - 1; i >= 0; i--) {
+            if (arr[i] < rightMin) rightMin = arr[i];
+            right_min.add(rightMin);
+        }
+        List<Integer> resList = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            if (left_max.get(i) < arr[i] && arr[i] < right_min.get(i)) {
+                resList.add(arr[i]);
+            }
+        }
+
+        return resList;
+    }
+
+    public static List<Integer> findKI(int[] arr) {
+        List<Integer> list = new LinkedList<>();
+        int n = arr.length;
+        int[] dpMax = new int[n];
+        int[] dpMin = new int[n];
+        dpMax[0] = arr[0];
+        dpMin[n - 1] = arr[n - 1];
+        for (int i = 1; i < n; i++) {
+            dpMax[i] = Math.max(arr[i], dpMax[i - 1]);
+        }
+        for (int i = n - 2; i >= 0; i--) {
+            dpMin[i] = Math.min(arr[i], dpMin[i + 1]);
+        }
+        for (int i = 0; i < n; i++) {
+            if (i == 0 && dpMax[i] == dpMin[i]) {
+                list.add(arr[i]);
+            } else if (i == n - 1 && dpMax[i] == dpMin[i]) {
+                list.add(arr[i]);
+            } else if (arr[i] > dpMax[i - 1] && arr[i] < dpMin[i + 1]) {
+                list.add(arr[i]);
+            }
+        }
+        return list;
+    }
+
+
+    public static int solve(int n, int k) {
+        k = k % n;
+        if (k == 0) return 0;
+        if (k == 1 || n - k == 1) return 2;
+        return 3;
+    }
+
+
+
+
+    public static String printMaxChar(String str) {
+        StringBuilder builder = new StringBuilder();
+        int max = 0;
+        int i = 0;
+        int length = str.length();
+        while (i < length) {
+            char c = str.charAt(i);
+            i++;
+            int start = i;
+            while (i < length && str.charAt(i) == str.charAt(i - 1)) {
+                i++;
+            }
+            int len = i - start + 1;
+            if (len > max) {
+                max = len;
+                builder = new StringBuilder();
+                builder.append(c).append(";");
+            } else if (len == max) {
+                builder.append(c).append(";");
+            }
+        }
+        builder.deleteCharAt(builder.length() - 1);
+        return builder.toString();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getPipCount(5));
+    }
+
+
+    public static int getPipCount(int n) {
+        int sum = 1;
+        int[] dp = new int[3];
+        dp[0] = 1;
+        while (n > 0) {
+            sum += dp[2];
+            dp[2] += dp[1];
+            dp[1] = dp[0];
+            dp[0] = dp[2];
+            n--;
+        }
+
+
+        return sum;
+    }
+
 }
 

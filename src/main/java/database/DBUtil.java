@@ -6,9 +6,10 @@ import java.util.List;
 public class DBUtil {
 
     private static final String DRIVER = "com.mysql.jdbc.Driver";//MySQL 驱动
-    private static final String URL = "jdbc:mysql://114.116.46.58:3306/blog";//MYSQL数据库连接Url
+    private static final String URL = "jdbc:mysql://localhost:3306/my_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8";//MYSQL数据库连接Url
     private static final String USER = "root";//用户名
-    private static final String PASSWORD = "Zxl5201314@";//密码
+    //private static final String PASSWORD = "Zxl5201314@";//密码
+    private static final String PASSWORD = "root";//密码
 
     /**
      * 连接数据库

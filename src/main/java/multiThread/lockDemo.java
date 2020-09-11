@@ -19,7 +19,10 @@ public class lockDemo {
         LockSupport.unpark(Thread.currentThread());
         LockSupport.park();
         System.out.println("end park");
-        ReentrantLock lock = new ReentrantLock();
+        ReentrantLock lock = new ReentrantLock(false);
+        lock.lock();
         Condition condition = lock.newCondition();
+        Object o = new Object();
+
     }
 }

@@ -9,7 +9,6 @@ package designMode.creation.singleton;
 
 public class Main {
     public static void main(String[] args) {
-        EnumSingleton singleton = EnumSingleton.INSTANCE;
-        System.out.println(singleton.getName());
+        Runtime runtime = Runtime.getRuntime();
     }
 }

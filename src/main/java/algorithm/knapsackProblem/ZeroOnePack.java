@@ -35,6 +35,14 @@ public class ZeroOnePack {
         return dp[v];
     }
 
+
+    /*
+4 4
+-1 -1
+1 -1
+-1 1
+6 6*/
+
     /**
      * @return 最大价值 max
      * @param: n 物品数量；v 背包容量；c 物品体积；w 物品价值

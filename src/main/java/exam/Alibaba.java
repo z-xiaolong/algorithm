@@ -93,10 +93,6 @@ public class Alibaba {
     }
 
 
-    public static void main(String[] args) {
-        solutionII();
-    }
-
     @Test
     public static void solutionII() {
         Scanner in = new Scanner(System.in);
@@ -108,7 +104,7 @@ public class Alibaba {
         }
     }
 
-    static int[] dp = new int[1000000000];
+    static int[] dp = new int[1000];
 
     public static void dp() {
         int cnt = 0;
@@ -271,5 +267,104 @@ public class Alibaba {
         }
     }
 
+    public static void main(String[] args) {
+        solutionIII();
+    }
 
+
+    public static void solution() {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int m = in.nextInt();
+        int[] coins = new int[n];
+        int[][] houses = new int[m][2];
+
+        for (int i = 0; i < n; i++) {
+            coins[i] = in.nextInt();
+        }
+        for (int i = 0; i < m; i++) {
+            houses[i][0] = in.nextInt();
+            houses[i][1] = in.nextInt();
+        }
+        Arrays.sort(houses, (o1, o2) -> o2[0] - o1[0]);
+        Arrays.sort(coins);
+        long sum = 0;
+        boolean[] flag = new boolean[n];
+        int count = 0;
+        for (int i = 0; i < m; i++) {
+            int cost = houses[i][1];
+            int index = binarySearch(coins, cost);
+            while (index < n && (coins[index] < cost || flag[index])) {
+                index++;
+            }
+            if (index == n) continue;
+            sum += cost;
+            flag[index] = true;
+            count++;
+            if (count == n) break;
+        }
+        System.out.println(sum);
+    }
+
+    public static int binarySearch(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else if (nums[mid] >= target) {
+                right = mid;
+            }
+        }
+        return left;
+    }
+
+    public static void solutionIII() {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int m = in.nextInt();
+        int[] coins = new int[n];
+        int[][] houses = new int[m][2];
+
+        for (int i = 0; i < n; i++) {
+            coins[i] = in.nextInt();
+        }
+        for (int i = 0; i < m; i++) {
+            houses[i][0] = in.nextInt();
+            houses[i][1] = in.nextInt();
+        }
+        Arrays.sort(houses, (o1, o2) -> o2[0] - o1[0]);
+        Arrays.sort(coins);
+        long sum = 0;
+        boolean[] flag = new boolean[n];
+        int count = 0;
+        for (int i = 0; i < m; i++) {
+            int cost = houses[i][1];
+            int index = binarySearchI(coins, cost);
+            while (index < n && (coins[index] <= cost || flag[index])) {
+                index++;
+            }
+            if (index == n) continue;
+            sum += cost;
+            flag[index] = true;
+            count++;
+            if (count == n) break;
+        }
+        System.out.println(sum);
+    }
+
+    public static int binarySearchI(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else if (nums[mid] >= target) {
+                right = mid;
+            }
+        }
+        return left;
+    }
 }

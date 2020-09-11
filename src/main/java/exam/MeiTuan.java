@@ -1,9 +1,6 @@
 package exam;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @Author long
@@ -13,6 +10,145 @@ import java.util.Scanner;
  **/
 
 public class MeiTuan {
+
+
+    /*public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = Integer.parseInt(in.nextLine());
+        int count = 0;
+        String start = null;
+        for (int i = 0; i < n; i++) {
+            String str = in.nextLine();
+            str = str.trim();
+            String[] city = str.split("\\s+");
+            if (start == null) start = city[0];
+            else if (start.equals(city[1])) {
+                count++;
+                start = null;
+            }
+        }
+        System.out.println(count);
+    }*/
+
+
+    /*public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int m = in.nextInt();
+        int[] parent = new int[n + 1];
+        for (int i = 0; i <= n; i++) {
+            parent[i] = i;
+        }
+        for (int i = 0; i < m; i++) {
+            union(parent, in.nextInt(), in.nextInt());
+        }
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        for (int i = 1; i <= n; i++) {
+            if (parent[i] == i) {
+                map.put(i, new ArrayList<>());
+            }
+        }
+        for (int i = 1; i <= n; i++) {
+            int p = find(parent, i);
+            map.get(p).add(i);
+        }
+        System.out.println(map.size());
+        for (int i = 1; i <= n; i++) {
+            if (map.containsKey(i)) {
+                List<Integer> list = map.get(i);
+                Collections.sort(list);
+                for (int num : list) {
+                    System.out.print(num + " ");
+                }
+            }
+        }
+    }*/
+
+    /*public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int a = in.nextInt();
+        int b = in.nextInt();
+        int[][] profits = new int[n][2];
+        for (int i = 0; i < n; i++) {
+            profits[i][0] = in.nextInt();
+            profits[i][1] = in.nextInt();
+        }
+        int max = 0;
+        Arrays.sort(profits, (o1, o2) -> o2[0] - o1[0]);
+        boolean[] flag = new boolean[n];
+        int i = 0;
+        while (i < n && a > 0) {
+            if (profits[i][0] >= profits[i][1]) {
+                max += profits[i][0];
+                a--;
+                flag[i] = true;
+            }
+            i++;
+        }
+        while (b > 0) {
+            int subMax = Integer.MIN_VALUE;
+            int index = 0;
+            for (int j = 0; j < n; j++) {
+                if (!flag[j]) {
+                    if (profits[j][1] > subMax) {
+                        subMax = profits[j][1];
+                        index = j;
+                    }
+                }
+            }
+            flag[index] = true;
+            max += subMax;
+            b--;
+        }
+        System.out.println(max);
+    }*/
+
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int m = in.nextInt();
+        int count = 0;
+        int mod = 998244353;
+        for (int i = 1; i <= n; i++) {
+
+        }
+
+        System.out.println(count);
+    }
+
+    public static void union(int[] parent, int p, int q) {
+        if (p == q) return;
+        int rootP = find(parent, p);
+        int rootQ = find(parent, q);
+        if (rootP == rootQ) return;
+        if (rootP > rootQ) {
+            parent[rootQ] = rootP;
+            parent[p] = rootP;
+            parent[q] = rootP;
+        } else {
+            parent[rootP] = rootQ;
+            parent[p] = rootQ;
+            parent[q] = rootQ;
+        }
+    }
+
+    public static int find(int[] parent, int x) {
+        while (parent[x] != x) {
+            parent[x] = parent[parent[x]];
+            x = parent[x];
+        }
+        return x;
+    }
+
+    public static boolean check(int num1, int num2) {
+        if (num1 % 10 == 0 || num2 % 10 == 0) return false;
+        StringBuilder builder = new StringBuilder();
+        builder.append(num2);
+        builder.reverse();
+        return String.valueOf(num1).equals(builder.toString());
+    }
 
 
     public static void star() {
@@ -70,11 +206,6 @@ public class MeiTuan {
             stringBuilder.append(')');
         }
         return stringBuilder.toString();
-    }
-
-
-    public static void main(String[] args) {
-        match();
     }
 
 

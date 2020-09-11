@@ -9,5 +9,8 @@
         <module name="algorithm" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="algorithm" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

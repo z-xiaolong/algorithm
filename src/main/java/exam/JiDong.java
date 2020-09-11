@@ -1,5 +1,7 @@
 package exam;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.*;
 
 /**
@@ -10,21 +12,84 @@ import java.util.*;
  **/
 
 public class JiDong {
-    public static void main(String[] args) {
+
+    public static void main() {
         Scanner in = new Scanner(System.in);
-        int T = in.nextInt();
-        int[][] rectangles = new int[6 * T][2];
-        for (int i = 0; i < rectangles.length; i++) {
-            rectangles[i][0] = in.nextInt();
-            rectangles[i][1] = in.nextInt();
+        int MAX = 10000005;
+        int n = in.nextInt();
+        int m = in.nextInt();
+        int cnt = 0;
+        int[] prime = new int[MAX];
+        boolean[] pp = new boolean[MAX];
+        int[] vis = new int[MAX];
+        if (m > 10000000) {
+            m = 10000000;
         }
-        for (int i = 0; i < T; i++) {
-            if (check(rectangles, i * 6)) {
-                System.out.println("POSSIBLE");
-            } else {
-                System.out.println("IMPOSSIBLE");
+        for (int i = 2; i <= m; i++) {
+            if (vis[i] == 0) {
+                prime[cnt++] = i;
+                pp[i] = true;
+            }
+            for (int j = 0; j < cnt && i * prime[j] <= m; j++) {
+                vis[i * prime[j]] = i;
+                if (i % prime[j] == 0) break;
             }
         }
+        int sum = 0;
+        for (int i = n; i <= m; i++) {
+            if (isPara(i) && pp[i]) sum++;
+        }
+        System.out.println(sum);
+
+    }
+
+    public static boolean isPara(int x) {
+        int y = x;
+        int num = 0;
+        while (y != 0) {
+            num = num * 10 + y % 10;
+            y /= 10;
+        }
+        return num == x;
+    }
+
+    public static void compute(int n) {
+        BigDecimal num = new BigDecimal("0");
+        for (int i = 1; i <= n; i++) {
+            BigDecimal a = new BigDecimal("2");
+            a = a.multiply(new BigDecimal(i)).subtract(new BigDecimal("1.0"));
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        double res = 0.0;
+        double[] dp = new double[n + 1];
+        for (int i = 1; i <= n; i++) {
+
+        }
+        res = res * 0.2;
+        char[] num = new char[6];
+        num[0] = '0';
+        num[1] = '.';
+        String s = String.valueOf(res);
+        int i = 2;
+        while (i < num.length) {
+            if (i < s.length()) {
+                num[i] = s.charAt(i);
+            } else {
+                num[i] = '0';
+            }
+            i++;
+        }
+        if (s.length() > 6) {
+            char c = s.charAt(6);
+            if (c >= '5') {
+                num[5]++;
+            }
+        }
+        System.out.println(new String(num));
     }
 
     public static boolean check(int[][] rectangles, int index) {
@@ -60,27 +125,4 @@ public class JiDong {
         return true;
     }
 
-
-    public static void main() {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        int[][] consumers = new int[n][2];
-        int count = 1;
-        for (int i = 0; i < consumers.length; i++) {
-            consumers[i][0] = in.nextInt();
-            consumers[i][1] = in.nextInt();
-        }
-        Arrays.sort(consumers, (o1, o2) -> {
-            if (o1[0] != o2[0]) return o1[0] - o2[0];
-            else return o1[1] - o2[1];
-        });
-        for (int i = 0; i < consumers.length - 1; i++) {
-            if (consumers[i][1] > consumers[i + 1][0]) {
-                consumers[i + 1][0] = consumers[i][0];
-                consumers[i + 1][1] = Math.max(consumers[i + 1][1], consumers[i][1]);
-                count++;
-            }
-        }
-        System.out.println(count);
-    }
 }

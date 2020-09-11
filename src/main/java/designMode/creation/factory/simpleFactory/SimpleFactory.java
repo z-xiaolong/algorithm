@@ -6,7 +6,7 @@ package designMode.creation.factory.simpleFactory;
  * @Title
  * @Description //TODO
  **/
-//简单工程类
+//简单工厂类
 public class SimpleFactory {
 
     public static Pizza createPizza(String pizzaType) {

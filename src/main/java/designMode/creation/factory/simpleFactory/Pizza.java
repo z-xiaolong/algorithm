@@ -15,11 +15,17 @@ public abstract class Pizza {
         this.name = name;
     }
 
+    public abstract void prepare();
+
     public void bake() {
-        System.out.println("baking");
+        System.out.println(name + " baking");
     }
 
     public void cut() {
-        System.out.println("cut");
+        System.out.println(name + " cut");
+    }
+
+    public void box() {
+        System.out.println(name + " box");
     }
 }

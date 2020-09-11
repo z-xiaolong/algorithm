@@ -23,14 +23,17 @@ public class test {
         }
     };
 
-    public static void main(String[] args) {
-        ReentrantLock reentrantLock = new ReentrantLock(true);
-        thread1.start();
-        try {
-            Thread.sleep(5000);
-            //thread1.start();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public static void main(String[] args) throws InterruptedException {
+        Thread thread = new Thread(()->{
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                System.out.println("interrupt");
+                e.printStackTrace();
+            }
+        });
+        thread.start();
+        Thread.sleep(3000);
+        thread.interrupt();
     }
 }

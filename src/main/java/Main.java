@@ -1,12 +1,34 @@
 import algorithm.chapter10.MyStack;
 import leetcode.entity.ListNode;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 public class Main {
+
+
+    public static void main(String[] args) {
+        System.out.println(solution(1, 1));
+    }
+
+    public static int solution(int x, int y) {
+        int[][] matrix = new int[x + 1][y + 1];
+        return dfs(matrix, 0, 0);
+    }
+
+    public static int dfs(int[][] matrix, int i, int j) {
+        int n = matrix.length;
+        int m = matrix[0].length;
+        if (i == n - 1 && j == m - 1) return 1;
+        int count = 0;
+        if (i + 1 < n) {
+            count += dfs(matrix, i + 1, j);
+        }
+        if (j + 1 < m) {
+            count += dfs(matrix, i, j + 1);
+        }
+        return count;
+    }
+
 
     public static void exception(int i) {
         throw new RuntimeException();
@@ -17,16 +39,38 @@ public class Main {
         return -1;
     }
 
-
-    public static void main(String[] args) {
-        String str1 = "abc";
-        String str2 = new String("abc");
-        String str3 = "abc";
-        String str4 = "a" + "b" + "c";
-        System.out.println(str1 == str2);
-        System.out.println(str1 == str3);
-        System.out.println(str1 == str4);
+    static int maxBoxes(int[][] boxes) {
+        int n = boxes.length;
+        if (n == 0) return 0;
+        int len = 1;
+        Arrays.sort(boxes, (o1, o2) -> {
+            if (o1[0] != o2[0]) return o1[0] - o2[0];
+            else return o2[1] - o1[1];
+        });
+        int[] dp = new int[n + 1];
+        dp[len] = boxes[0][1];
+        for (int i = 1; i < n; i++) {
+            if (boxes[i][1] > dp[len]) {
+                dp[++len] = boxes[i][1];
+            } else {
+                int left = 1;
+                int right = len;
+                int pos = 0;
+                while (left <= right) {
+                    int mid = left + (right - left) / 2;
+                    if (dp[mid] < boxes[i][1]) {
+                        pos = mid;
+                        left = mid + 1;
+                    } else {
+                        right = mid - 1;
+                    }
+                }
+                dp[pos + 1] = boxes[i][1];
+            }
+        }
+        return len;
     }
+
 
     public static void operate(Stack<Integer> prevStack, Stack<Integer> nextStack, String str) {
         if (str.contains("add")) {
@@ -181,4 +225,82 @@ public class Main {
         return result;
     }
 
+}
+
+
+class Trie {
+    private boolean isWord;
+    private final Trie[] next;
+    private int count = 0;
+    private int stopCount = 0;
+
+    public Trie() {
+        isWord = false;
+        next = new Trie[26];
+    }
+
+
+    public void insert(String word) {
+        Trie curTrie = this;
+        int i = 0;
+        while (i < word.length()) {
+            char c = word.charAt(i);
+            if (curTrie.next[c - 'a'] == null) {
+                curTrie.next[c - 'a'] = new Trie();
+            }
+            curTrie = curTrie.next[c - 'a'];
+            curTrie.count++;
+            i++;
+        }
+        curTrie.isWord = true;
+        curTrie.stopCount++;
+    }
+
+    public void delete(String word) {
+        Trie curTrie = this;
+        int i = 0;
+        if (!search(word)) return;
+        while (i < word.length()) {
+            char c = word.charAt(i);
+            curTrie = curTrie.next[c - 'a'];
+            curTrie.count--;
+            i++;
+        }
+        curTrie.stopCount--;
+        if (curTrie.stopCount == 0) {
+            curTrie.isWord = false;
+        }
+    }
+
+    public boolean search(String word) {
+        Trie curTrie = this;
+        int i = 0;
+        while (i < word.length()) {
+            if (curTrie == null) return false;
+            char c = word.charAt(i);
+            if (curTrie.next[c - 'a'] == null || curTrie.next[c - 'a'].count < 1) {
+                return false;
+            }
+            curTrie = curTrie.next[c - 'a'];
+            i++;
+        }
+        return curTrie.isWord;
+    }
+
+    public int prefixNumber(String word) {
+        Trie curTrie = this;
+        int i = 0;
+
+        int cnt = Integer.MAX_VALUE;
+        while (i < word.length()) {
+            char c = word.charAt(i);
+            if (curTrie.next[c - 'a'] == null || curTrie.next[c - 'a'].count < 1) {
+                return 0;
+            }
+            curTrie = curTrie.next[c - 'a'];
+            cnt = Math.min(cnt, curTrie.count);
+            i++;
+        }
+        return cnt;
+    }
 }

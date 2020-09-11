@@ -9,9 +9,7 @@ package designMode.creation.singleton;
 
 public enum EnumSingleton {
     INSTANCE;
-    private String name = "hello";
 
-    public String getName() {
-        return name;
+    public void method() {
     }
 }

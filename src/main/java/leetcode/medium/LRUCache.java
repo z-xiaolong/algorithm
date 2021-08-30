@@ -29,7 +29,9 @@ public class LRUCache {
 
     public int get(int key) {
         Node node = cacheMap.get(key);
-        if (node == null) return -1;
+        if (node == null) {
+            return -1;
+        }
         removeNode(node);
         addToHead(node);
         return node.value;
@@ -49,7 +51,9 @@ public class LRUCache {
     }
 
     private void addNode(Node node) {
-        if (capacity == 0) return;
+        if (capacity == 0) {
+            return;
+        }
         if (cacheMap.size() == capacity && !cacheMap.containsKey(node.key)) {
             Node deadNode = removeTail();
             cacheMap.remove(deadNode.key);

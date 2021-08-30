@@ -3,7 +3,7 @@ package algorithm.chapter8;
 /**
  * @Author long
  * @Date 2019/10/13 20:54
- * @Description  计数排序，时间复杂度：O(n)
+ * @Description 计数排序，时间复杂度：O(n)
  */
 public class CountingSort {
 
@@ -18,8 +18,8 @@ public class CountingSort {
     public static int[] countingSort(int[] A, int k) {
         int[] B = new int[A.length];
         int[] C = new int[k];
-        for (int i = 0; i < A.length; i++) {
-            C[A[i]] = C[A[i]] + 1;
+        for (int j : A) {
+            C[j]++;
         }
 
         for (int i = 1; i < k; i++) {

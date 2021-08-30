@@ -1,12 +1,365 @@
 import algorithm.chapter10.MyStack;
 import leetcode.entity.ListNode;
+import leetcode.entity.TreeNode;
 
 import java.util.*;
 
 public class Main {
 
 
+
+    
+
     public static void main(String[] args) {
+
+    }
+
+
+
+
+
+
+
+
+
+
+    static int K;
+
+    public int maxValue(TreeNode root, int k) {
+        K = k;
+        Map<TreeNode, int[]> map = new HashMap<>();
+        return dfs(map, root, k);
+    }
+
+    public int dfs(Map<TreeNode, int[]> map, TreeNode node, int k) {
+        if (node == null) {
+            return 0;
+        }
+        if (map.containsKey(node)) {
+            int[] dp = map.get(node);
+            if (dp[k] != -1) {
+                return dp[k];
+            }
+        } else {
+            int[] dp = new int[11];
+            Arrays.fill(dp, -1);
+            map.put(node, dp);
+        }
+        int max = Integer.MIN_VALUE;
+        int val = node.val;
+        max = Math.max(max, dfs(map, node.left, K) + dfs(map, node.right, K));
+        if (k != 0) {
+            for (int i = 0; i < k; i++) {
+                max = Math.max(max, val + dfs(map, node.left, i) + dfs(map, node.right, k - i - 1));
+            }
+        }
+        map.get(node)[k] = max;
+        return max;
+    }
+
+
+    public static int storeWater(int[] bucket, int[] vat) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>(
+                (a, b) -> (vat[b] + bucket[b] - 1) / bucket[b]
+                        - (vat[a] + bucket[a] - 1) / bucket[a]);
+        int n = bucket.length;
+        int count = 0;
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            if (bucket[i] == 0 && vat[i] != 0) {
+                bucket[i]++;
+                queue.add(i);
+                count++;
+            } else if (vat[i] != 0) {
+                queue.add(i);
+            }
+        }
+        if (queue.isEmpty()) {
+            return 0;
+        }
+        while (!queue.isEmpty()) {
+            int index = queue.poll();
+            int max = (vat[index] + bucket[index] - 1) / bucket[index];
+            min = Math.min(min, max + count);
+            int change = (vat[index] + bucket[index]) / (bucket[index] + 1);
+            if (change + 1 > max) {
+                break;
+            } else {
+                bucket[index]++;
+                count++;
+                queue.add(index);
+            }
+        }
+        return min;
+    }
+
+
+    public static ListNode solution(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode tmp = new ListNode(1);
+        tmp.next = head;
+        while (head.next != null) {
+            if (head.val == head.next.val) {
+                head.next = head.next.next;
+            } else {
+                head = head.next;
+            }
+        }
+        return tmp.next;
+    }
+
+
+    public int magicTower(int[] nums) {
+        long sum = 0;
+        for (int num : nums) {
+            sum += num;
+        }
+        if (sum < 0) {
+            return -1;
+        }
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        sum = 0;
+        int count = 0;
+        for (int num : nums) {
+            sum += num;
+            queue.add(num);
+            if (sum < 0) {
+                count++;
+                sum -= queue.poll();
+            }
+        }
+        return count;
+    }
+
+    public int orchestraLayout(int num, int xPos, int yPos) {
+
+        int level = Math.min(Math.min(xPos + 1, num - xPos),
+                Math.min(yPos + 1, num - yPos));
+        long sum = 4L * (num - 1 + (num - 1 - (level - 1) * 2L)) * level / 2;
+        sum -= 4L * (num - 1 - (level - 1) * 2L);
+        int min = level - 1;
+        int max = num - level;
+        if (xPos == min) {
+            sum += yPos - min + 1;
+        } else if (yPos == max) {
+            sum += max - min + 1 + xPos - min;
+        } else if (xPos == max && yPos > min) {
+            sum += 2L * (max - min + 1) - 1 + max - yPos;
+        } else if (yPos == min) {
+            sum += (max - min + 1) * 3L - 2 + max - xPos;
+        }
+        if (sum % 9 == 0) {
+            return 9;
+        }
+        return (int) (sum % 9);
+    }
+
+    static int mod = 1000000007;
+
+
+    public int purchasePlans(int[] nums, int target) {
+        Arrays.sort(nums);
+        long sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] * 2 > target) {
+                break;
+            }
+            int left = i;
+            int right = nums.length - 1;
+            int t = target - nums[i];
+            while (left < right) {
+                int mid = left + (right - left + 1) / 2;
+                if (nums[mid] > t) {
+                    right = mid - 1;
+                } else if (nums[mid] <= t) {
+                    left = mid;
+                }
+            }
+            if (left > i && nums[left] <= t) {
+                sum = (sum + left - i) % mod;
+            }
+        }
+        return (int) (sum % mod);
+    }
+
+
+    public static void main11(String[] args) {
+        ThreadLocal<String> threadLocal1 = new ThreadLocal<>();
+        ThreadLocal<String> threadLocal2 = new ThreadLocal<>();
+
+        new Thread(() -> {
+            threadLocal1.set("ThreadA");
+            threadLocal2.set("ThreadAB");
+            System.out.println(threadLocal1.get());
+            threadLocal1.set("ThreadA +++");
+            System.out.println(threadLocal1.get());
+            threadLocal1.remove();
+            System.out.println(threadLocal1.get());
+            System.out.println(threadLocal2.get());
+        }, "ThreadA").start();
+    }
+
+    public static void main4(String[] args) {
+        long re = 0;
+        double b = 0;
+
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        int M = in.nextInt();
+        int[][] peoples = new int[N][2];
+        for (int i = 0; i < N; i++) {
+            peoples[i][0] = in.nextInt();
+            peoples[i][1] = in.nextInt();
+        }
+        int[][] stations = new int[M][2];
+        for (int i = 0; i < M; i++) {
+            stations[i][0] = in.nextInt();
+            stations[i][1] = in.nextInt();
+        }
+        int index = 0;
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < M; i++) {
+            int dis = 0;
+            int x = stations[i][0];
+            int y = stations[i][1];
+            for (int j = 0; j < N; j++) {
+                dis += Math.abs(peoples[j][0] - x) + Math.abs(peoples[j][1] - y);
+            }
+            if (dis < min) {
+                min = dis;
+                index = i;
+            }
+        }
+        System.out.println(stations[index][0] + " " + stations[index][1]);
+    }
+
+
+    static int Mod = 1000000007;
+
+    public static void main3(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = Integer.parseInt(in.nextLine());
+        for (int i = 0; i < n; i++) {
+            String line = in.nextLine();
+            String[] strs = line.split(" ");
+            long a = Integer.parseInt(strs[0]) % mod;
+            long b = Integer.parseInt(strs[1]) % mod;
+            char op = strs[2].charAt(0);
+            System.out.println(getResult(a, b, op));
+        }
+    }
+
+    public static long getResult(long a, long b, char op) {
+        long res = 0;
+        if (op == '-') {
+            res = a - b;
+        } else if (op == '+') {
+            res = a + b;
+        } else if (op == '*') {
+            res = a * b;
+        } else if (op == '^') {
+            long temp = a;
+            res = 1;
+            while (b > 0) {
+                if ((b & 1) == 1) {
+                    res = res * temp % mod;
+                }
+                temp = temp * temp % mod;
+                b = b >> 1;
+            }
+        }
+        ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
+        threadLocal.set(0);
+
+        return res % mod;
+    }
+
+    public static void main2(String[] args) {
+        //HashMap<Integer, Integer> map = new HashMap<>();
+        //map.put(null, null);
+        Scanner in = new Scanner(System.in);
+        String str = in.nextLine();
+        int[] map = new int[256];
+        char[] chars = str.toCharArray();
+        for (char c : chars) {
+            map[c]++;
+        }
+        int count = 0;
+        int len = 0;
+        for (int i = 0; i < map.length; i++) {
+            if (map[i] != 0) {
+                if (count == 0) {
+                    count = map[i];
+                    continue;
+                }
+                if (count % map[i] == 0 || map[i] % count == 0) {
+                    count = Math.min(count, map[i]);
+                } else {
+                    System.out.println(str);
+                    return;
+                }
+            }
+        }
+        for (int i = 0; i < map.length; i++) {
+            if (map[i] != 0) {
+                len += map[i] / count;
+            }
+        }
+        String sub = str.substring(0, len);
+        if (check(str, sub)) {
+            System.out.println(sub);
+        } else {
+            System.out.println(str);
+        }
+    }
+
+    public static boolean check(String str, String sub) {
+        int len = sub.length();
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) != sub.charAt(i % len)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    public static int find(int[] nums) {
+        quickSort(nums, 0, nums.length - 1);
+        int max = 0;
+        for (int i = 1; i < nums.length; i++) {
+            max = Math.max(nums[i] - nums[i - 1], max);
+        }
+        return max;
+    }
+
+    public static void quickSort(int[] nums, int left, int right) {
+        if (left >= right) return;
+        int mid = partition(nums, left, right);
+        quickSort(nums, left, mid - 1);
+        quickSort(nums, mid + 1, right);
+    }
+
+
+    public static int partition(int[] nums, int left, int right) {
+        if (left >= right) return left;
+        int flag = nums[left];
+        while (left < right) {
+            while (left < right && nums[right] >= flag)
+                right--;
+            nums[left] = nums[right];
+            while (left < right && nums[left] <= flag)
+                left++;
+            nums[right] = nums[left];
+        }
+        nums[left] = flag;
+        return left;
+    }
+
+
+    public static void main1(String[] args) {
         System.out.println(solution(1, 1));
     }
 
@@ -259,7 +612,9 @@ class Trie {
     public void delete(String word) {
         Trie curTrie = this;
         int i = 0;
-        if (!search(word)) return;
+        if (!search(word)) {
+            return;
+        }
         while (i < word.length()) {
             char c = word.charAt(i);
             curTrie = curTrie.next[c - 'a'];

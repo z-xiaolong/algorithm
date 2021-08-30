@@ -1,7 +1,5 @@
 package leetcode.hard;
 
-import javaCore.test.IntegerTest;
-
 import java.util.Stack;
 
 /**
@@ -14,23 +12,72 @@ import java.util.Stack;
 public class Calculate {
 
     public int calculate(String s) {
-        Stack<String> stack = new Stack<>();
+        Stack<Integer> ops = new Stack<>();
         int i = 0;
         int length = s.length();
+        int result = 0;
+        int sign = 1;
+        ops.push(sign);
         while (i < length) {
-            int j = i;
             if (s.charAt(i) == '(') {
-                i++;
-            } else if (s.charAt(i) == '+' || s.charAt(i) == '-') {
-                i++;
-                while (s.charAt(i) >= '0' && s.charAt(i) <= '9') {
+                ops.push(sign);
+            } else if (s.charAt(i) == ')') {
+                ops.pop();
+            } else if (s.charAt(i) == '+') {
+                sign = ops.peek();
+            } else if (s.charAt(i) == '-') {
+                sign = -ops.peek();
+            } else if (s.charAt(i) != ' ') {
+                long num = 0;
+                while (i < length && Character.isDigit(s.charAt(i))) {
+                    num = num * 10 + s.charAt(i) - '0';
                     i++;
                 }
+                result += sign * num;
+                continue;
             }
             i++;
         }
-        return 0;
+        return result;
     }
 
 
+    public int calculateII(String s) {
+        Stack<Integer> stack = new Stack<>();
+        int len = s.length();
+        char sign = '+';
+        int res = 0;
+        int num = 0;
+        for (int i = 0; i < len; i++) {
+            char c = s.charAt(i);
+            if (isDigit(c)) {
+                num = num * 10 + c - '0';
+            }
+            if (!isDigit(c) && c != ' ' || i == len - 1) {
+                switch (sign) {
+                    case '+':
+                        stack.push(num);
+                        break;
+                    case '-':
+                        stack.push(-num);
+                        break;
+                    case '*':
+                        stack.push(stack.pop() * num);
+                        break;
+                    case '/':
+                        stack.push(stack.pop() / num);
+                }
+                sign = c;
+                num = 0;
+            }
+        }
+        while (!stack.isEmpty()) {
+            res += stack.pop();
+        }
+        return res;
+    }
+
+    public boolean isDigit(char c) {
+        return c >= '0' && c <= '9';
+    }
 }

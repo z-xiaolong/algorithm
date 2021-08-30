@@ -7,8 +7,6 @@ import java.nio.channels.CompletionHandler;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
-import static com.sun.deploy.perf.DeployPerfUtil.write;
-
 /**
  * @Author long
  * @Date 2020/1/29 16:00

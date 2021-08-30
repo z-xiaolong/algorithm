@@ -20,8 +20,8 @@ import java.util.Set;
 
 public class TimeClientHandle implements Runnable {
 
-    private String host;
-    private int port;
+    private final String host;
+    private final int port;
     private Selector selector;
     private SocketChannel socketChannel;
     private volatile boolean stop;
@@ -51,7 +51,7 @@ public class TimeClientHandle implements Runnable {
                 selector.select(1000);
                 Set<SelectionKey> selectionKeys = selector.selectedKeys();
                 Iterator<SelectionKey> iterator = selectionKeys.iterator();
-                SelectionKey key = null;
+                SelectionKey key;
                 while (iterator.hasNext()) {
                     key = iterator.next();
                     iterator.remove();

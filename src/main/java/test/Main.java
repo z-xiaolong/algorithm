@@ -1,9 +1,5 @@
 package test;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Scanner;
-
 /**
  * @Author long
  * @Date 2020/3/20 16:20
@@ -14,14 +10,48 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        int[][] cards = new int[n][2];
-        for (int i = 0; i < n; i++) {
-            cards[i][0] = in.nextInt();
-            cards[i][1] = in.nextInt();
+
+        Runnable runnable = () -> {
+            try {
+                String name = Thread.currentThread().getName();
+                System.out.println(name + "=" + Thread.currentThread().getThreadGroup());
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        };
+
+        Thread thread1 = new Thread(runnable, "thread1");
+        Thread thread2 = new Thread(runnable, "thread2");
+        Thread thread3 = new Thread(runnable, "thread3");
+        Thread thread4 = new Thread(() -> {
+            Thread thread = new Thread(runnable, "thread5");
+            thread.start();
+            try {
+                String name = Thread.currentThread().getName();
+                System.out.println(name + "=" + Thread.currentThread().getThreadGroup());
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }, "thread4");
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        thread4.start();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        //System.out.println(getMaxMoney(cards));
+        //System.out.println(thread1);
+        String name = Thread.currentThread().getName();
+        System.out.println(name + "=" + Thread.currentThread().getThreadGroup());
+        System.out.println(Thread.activeCount());
+        ThreadGroup threadGroup = Thread.currentThread().getThreadGroup();
+        System.out.println(threadGroup.getParent());
+        System.out.println(threadGroup.activeGroupCount());
+
     }
 
 

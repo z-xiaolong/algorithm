@@ -19,6 +19,7 @@ class LRUCache extends LinkedHashMap<Integer, Integer> {
         this.capacity = capacity;
     }
 
+    @Override
     protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
         return size() > capacity;
     }

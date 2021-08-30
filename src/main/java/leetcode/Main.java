@@ -1,21 +1,41 @@
 package leetcode;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Main {
 
+
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int N = in.nextInt();
-        int k = in.nextInt();
-        int[] goods = new int[N];
-        for (int i = 0; i < N; i++) {
-            goods[i] = in.nextInt();
-        }
-        System.out.println(solution(N, k, goods));
+        findErrorNums(new int[]{3, 2, 2});
     }
 
+    public static int[] findErrorNums(int[] nums) {
+        int n = nums.length;
+        int[] res = new int[2];
+        int xor = 0;
+        for (int i = 1; i <= n; i++) {
+            xor ^= nums[i - 1];
+            xor ^= i;
+        }
+        int i = 0;
+        int dup = 1;
+        while (i < n) {
+            if (nums[i] != i + 1) {
+                if (nums[i] == nums[nums[i] - 1]) {
+                    dup = nums[i];
+                    break;
+                }
+                int tmp = nums[i];
+                nums[i] = nums[nums[i] - 1];
+                nums[tmp - 1] = tmp;
+            } else {
+                i++;
+            }
+        }
+        res[0] = dup;
+        res[1] = xor ^ dup;
+        return res;
+    }
 
     public static int solution(int N, int k, int[] goods) {
         Arrays.sort(goods);
@@ -31,7 +51,9 @@ public class Main {
                 Arrays.sort(goods);
                 count++;
             }
-            if (goods[index] == 0) index++;
+            if (goods[index] == 0) {
+                index++;
+            }
         }
         return count;
     }

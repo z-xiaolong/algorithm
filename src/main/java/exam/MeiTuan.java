@@ -11,6 +11,173 @@ import java.util.*;
 
 public class MeiTuan {
 
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String line = in.nextLine();
+        Deque<Long> costs = new ArrayDeque<>();
+        for (char c : line.toCharArray()) {
+            if (c == '(') {
+                costs.push(1L);
+            } else {
+                long top = costs.pop() + 1;
+                while (!costs.isEmpty() && costs.peek() > 1L) {
+                    top *= costs.pop();
+                }
+                costs.push(top);
+            }
+        }
+        long ans = 1L;
+        while (!costs.isEmpty()) {
+            ans *= costs.pop();
+        }
+        int mod = 1000000007;
+        System.out.println(ans % mod);
+        //()((((())()()))()()())(()())()
+    }
+
+    public static void main2(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] nums = new int[n];
+        for (int i = 0; i < n; i++) {
+            nums[i] = in.nextInt();
+        }
+
+        int m = in.nextInt();
+        int[][] queries = new int[m][3];
+        for (int i = 0; i < m; i++) {
+            queries[i][0] = in.nextInt();
+            queries[i][1] = in.nextInt();
+            queries[i][2] = in.nextInt();
+        }
+        int[] sum = new int[n];
+        for (int i = 0; i < n; i++) {
+
+        }
+
+    }
+
+
+    public static void main1(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int a = in.nextInt();
+        int b = in.nextInt();
+        int[] A = new int[a];
+        int[] B = new int[b];
+        for (int i = 0; i < a; i++) {
+            A[i] = in.nextInt();
+        }
+        for (int i = 0; i < b; i++) {
+            B[i] = in.nextInt();
+        }
+        int maxA = 0;
+        int maxB = 0;
+        int prefix = 0;
+        for (int i = 0; i < a; i++) {
+            prefix += A[i];
+            maxA = Math.max(maxA, prefix);
+        }
+        prefix = 0;
+        for (int i = 0; i < b; i++) {
+            prefix += B[i];
+            maxB = Math.max(maxB, prefix);
+        }
+        System.out.println(maxA + maxB);
+    }
+
+    public static long sum = 1;
+    public static int mod = 20210101;
+
+    public static void dfs(int[] count, int i, long sub) {
+        if (i == count.length) {
+            sum = (sub + sum) % mod;
+            return;
+        }
+        if (count[i] > 0) {
+            if (sub == 0) {
+                dfs(count, i + 1, count[i]);
+            } else {
+                dfs(count, i + 1, sub * count[i] % mod);
+            }
+        }
+        dfs(count, i + 1, sub);
+    }
+
+
+    /*public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        String k = String.valueOf(in.nextInt());
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            int num = in.nextInt();
+            String str = str(num);
+            if (str.contains(k)) {
+                sum++;
+            }
+        }
+        System.out.println(sum);
+    }
+*/
+    public static String str(int x) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 1; i <= x; i++) {
+            if (x % i == 0) {
+                builder.append(i);
+            }
+        }
+        return builder.toString();
+    }
+
+
+
+    /*public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int k = in.nextInt();
+        Map<Integer, Set<int[]>> map = new HashMap<>();
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                int num = in.nextInt();
+                if (!map.containsKey(num)) {
+                    map.put(num, new HashSet<>());
+                }
+                map.get(num).add(new int[]{i, j});
+            }
+        }
+        for (int i = 1; i <= k; i++) {
+            if (!map.containsKey(i)) {
+                System.out.println(-1);
+                return;
+            }
+        }
+        Set<int[]> set = map.get(1);
+        for (int[] cur : set) {
+            dfs(map, cur, k, 0, 1);
+        }
+        System.out.println(min);
+    }*/
+
+
+    public static int min = Integer.MAX_VALUE;
+
+    public static void dfs(Map<Integer, Set<int[]>> map, int[] cur, int k, int sum, int i) {
+        if (sum > min) {
+            return;
+        }
+        if (i == k) {
+            min = sum;
+            return;
+        }
+        Set<int[]> set = map.get(i + 1);
+        for (int[] next : set) {
+            sum += Math.abs(next[0] - cur[0]) + Math.abs(next[1] - cur[1]);
+            dfs(map, next, k, sum, i + 1);
+        }
+    }
+
+
 
     /*public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -104,19 +271,6 @@ public class MeiTuan {
         System.out.println(max);
     }*/
 
-
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        int m = in.nextInt();
-        int count = 0;
-        int mod = 998244353;
-        for (int i = 1; i <= n; i++) {
-
-        }
-
-        System.out.println(count);
-    }
 
     public static void union(int[] parent, int p, int q) {
         if (p == q) return;

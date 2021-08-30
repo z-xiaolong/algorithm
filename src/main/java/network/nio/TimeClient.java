@@ -7,7 +7,7 @@ package network.nio;
  * @Description //TODO
  **/
 
-public class TImeClient {
+public class TimeClient {
     public static void main(String[] args) {
         int port = 18181;
         String ip = "127.0.0.1";

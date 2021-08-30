@@ -1,5 +1,7 @@
 package exam;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -12,16 +14,50 @@ public class QiAnXin {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int V = in.nextInt();
-        int n = in.nextInt();
-        int[] P = new int[n + 1];
-        int[] W = new int[n + 1];
-        for (int i = 1; i <= n; i++) {
-            P[i] = in.nextInt();
-            W[i] = in.nextInt();
+        int x = in.nextInt();
+        int m = in.nextInt();
+        int[] s = new int[m + 1];
+        int[] v = new int[m + 1];
+        int[] w = new int[m + 1];
+        for (int i = 1; i <= m; i++) {
+            s[i] = in.nextInt();
         }
-        System.out.println(maxValueII(V, P, W, n));
+        for (int i = 1; i <= m; i++) {
+            v[i] = in.nextInt();
+        }
+        for (int i = 1; i <= m; i++) {
+            w[i] = in.nextInt();
+        }
+        int[] dp = new int[x + 1];
+        for (int i = 1; i <= x; i++) {
+            dp[i] = i;
+        }
+        for (int i = 1; i <= m; i++) {
+            for (int j = x; j >= v[i]; j--) {
+                for (int k = 1; k <= s[i] && k * v[i] <= j; k++) {
+                    dp[j] = Math.max(dp[j], dp[j - k * v[i]] + k * w[i]);
+                }
+            }
+        }
+        System.out.println(dp[x]);
     }
+
+    public int AttendMeetings(int[][] times) {
+        if (times.length == 0) {
+            return 0;
+        }
+        Arrays.sort(times, Comparator.comparingInt(o -> o[1]));
+        int max = 1;
+        int end = times[0][1];
+        for (int i = 1; i < times.length; i++) {
+            if (times[i][0] >= end) {
+                max++;
+                end = times[i][1];
+            }
+        }
+        return max;
+    }
+
 
     public static int maxValue(int V, int[] P, int[] W, int n) {
         int[] dp = new int[V + 1];

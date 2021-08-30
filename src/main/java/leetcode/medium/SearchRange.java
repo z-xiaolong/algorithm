@@ -1,7 +1,5 @@
 package leetcode.medium;
 
-import com.sun.corba.se.impl.ior.FreezableList;
-
 /**
  * @Author long
  * @Date 2020/2/12 10:45

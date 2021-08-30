@@ -15,6 +15,75 @@ import java.util.*;
 
 public class Alibaba {
 
+    static int mod = 1000000007;
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int T = in.nextInt();
+        for (int i = 0; i < T; i++) {
+            int n = in.nextInt(); //地铁线路数量
+            int s = in.nextInt(); //地点
+            int t = in.nextInt(); //终点
+            HashSet<Integer>[] trains = new HashSet[n];
+            Map<Integer, Set<Integer>> map = new HashMap<>();
+            for (int j = 0; j < n; j++) {
+                trains[j] = new HashSet<>();
+                int m = in.nextInt();
+                for (int k = 0; k < m; k++) {
+                    int station = in.nextInt();
+                    trains[j].add(station);
+                    if (!map.containsKey(station)) {
+                        map.put(station, new HashSet<>());
+                    }
+                    map.get(station).add(j);
+                }
+            }
+            System.out.println(solution1(trains, map, s, t));
+        }
+    }
+
+    public static int solution1(HashSet<Integer>[] trains, Map<Integer, Set<Integer>> map, int start, int end) {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(start);
+        int count = 0;
+        Set<Integer> flag = new HashSet<>();
+        flag.add(start);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            while (size > 0) {
+                int station = queue.poll();
+                Set<Integer> paths = map.get(station);
+                if (paths == null) {
+                    continue;
+                }
+                for (int path : paths) {
+                    HashSet<Integer> set = trains[path];
+                    if (set.contains(end)) {
+                        return count;
+                    }
+                    for (int s : set) {
+                        if (!flag.contains(s)) {
+                            flag.add(s);
+                            queue.add(s);
+                        }
+                    }
+                }
+                size--;
+            }
+            count++;
+        }
+        return -1;
+    }
+
+    /*public static int solution() {
+        Scanner in = new Scanner(System.in);
+        int T = in.nextInt();
+        for (int i = 0; i < T; i++) {
+            System.out.println();
+        }
+        return 0;
+    }*/
+
 
     //内存空间O（n）
     public static void maxExpectation() {
@@ -265,10 +334,6 @@ public class Alibaba {
             }
 
         }
-    }
-
-    public static void main(String[] args) {
-        solutionIII();
     }
 
 

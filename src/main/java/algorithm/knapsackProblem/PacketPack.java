@@ -25,8 +25,9 @@ public class PacketPack {
             }
             for (int j = V; j >= 0; j--) {
                 for (int k = 1; k <= s; k++) {
-                    if (j >= v[k])
+                    if (j >= v[k]) {
                         dp[j] = Math.max(dp[j - v[k]] + w[k], dp[j]);
+                    }
                 }
             }
         }

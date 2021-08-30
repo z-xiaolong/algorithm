@@ -95,7 +95,9 @@ public class ZuiYou {
                     System.out.println(0);
                     return;
                 }
-                if (c == '-') isNegative = true;
+                if (c == '-') {
+                    isNegative = true;
+                }
                 break;
             } else {
                 System.out.println(0);

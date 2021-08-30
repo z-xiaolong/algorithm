@@ -38,8 +38,9 @@ public class MultiplePackII {
                 count -= j;
                 goods.add(new Good(v[i] * j, w[i] * j));
             }
-            if (count > 0)
+            if (count > 0) {
                 goods.add(new Good(v[i] * count, w[i] * count));
+            }
         }
         for (Good good : goods) {
             for (int i = V; i >= good.v; i--) {

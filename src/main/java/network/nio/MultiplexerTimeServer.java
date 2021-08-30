@@ -22,13 +22,12 @@ import java.util.Set;
 public class MultiplexerTimeServer implements Runnable {
 
     private Selector selector;
-    private ServerSocketChannel serverSocketChannel;
     private volatile boolean stop;
 
     public MultiplexerTimeServer(String ip, int port) {
         try {
             selector = Selector.open();
-            serverSocketChannel = ServerSocketChannel.open();
+            ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
             serverSocketChannel.socket().bind(new InetSocketAddress(ip, port), 1024);
             serverSocketChannel.configureBlocking(false);
             serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
@@ -48,7 +47,7 @@ public class MultiplexerTimeServer implements Runnable {
     public void run() {
         while (!stop) {
             try {
-                int num = selector.select();
+                int num = selector.select(1000);
                 //System.out.println(num);
                 Set<SelectionKey> selectionKeys = selector.selectedKeys();
                 Iterator<SelectionKey> iterator = selectionKeys.iterator();
@@ -108,6 +107,8 @@ public class MultiplexerTimeServer implements Runnable {
                     socketChannel.close();
                 } else {
                 }
+            } else if (key.isWritable()) {
+                System.out.println("isWritable");
             }
         }
     }

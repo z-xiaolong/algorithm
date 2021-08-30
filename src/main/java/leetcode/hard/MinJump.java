@@ -13,7 +13,7 @@ public class MinJump {
         return 0;
     }
 
-    //执行用时 :13 ms, 在所有 Java 提交中击败了99.22%的用户
+    //执行用时 :13 ms, 在所有 Java 提交中击败了99.22%的用户
     public int minJumpI(int[] jump) {
         int n = jump.length;
         int[] dp = new int[n + 1];

@@ -1,8 +1,6 @@
 package leetcode.hard;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * @Author long
@@ -14,29 +12,53 @@ import java.util.List;
 public class MaxStudents {
 
 
-    private List<HashMap<String, Integer>> hashMaps;
-
-    //DP
-    public int maxStudents(char[][] seats) {
-        hashMaps = new ArrayList<>(seats.length);
-        return 0;
+    public static void main(String[] args) {
+        char[][] seats = new char[][]{{'#', '.', '#', '#', '.', '#'}, {'.', '#', '#', '#', '#', '.'}
+                , {'#', '.', '#', '#', '.', '#'}};
+        maxStudents(seats);
     }
 
-    public int DP(String[] seat, int index) {
-        if (index >= seat.length) {
-            return 0;
+    //dp[i][j] = max(dp[i-1][k]) k&j
+    public static int maxStudents(char[][] seats) {
+        int m = seats.length;
+        int n = seats[0].length;
+        int[] bit = new int[m];
+        int len = 1 << n;
+        for (int i = 0; i < m; i++) {
+            char[] seat = seats[i];
+            for (int j = 0; j < n; j++) {
+                if (seat[j] == '#') {
+                    bit[i] |= 1 << (n - j - 1);
+                }
+            }
         }
-        int max = hashMaps.get(index).getOrDefault(seat, 0);
-        if (max != 0) {
-            return max;
+        int[][] dp = new int[m][len];
+        for (int i = 0; i < len; i++) {
+            if ((i & bit[0]) == 0 && (i & (i >> 1)) == 0) {
+                dp[0][i] = Integer.bitCount(i); //初始化第一排
+            }
         }
-        String seatOne = seat[index];
-        for (int i = 0; i < seatOne.length(); i++) {
-            
+        for (int i = 1; i < m; i++) {
+            for (int j = 0; j < len; j++) { //j表示一行可能的安排情况
+                if ((j & (j << 1)) == 0 //检查左右
+                        && (j & bit[i]) == 0) { //检查桌位是否损坏
+                    for (int k = 0; k < len; k++) { //k表示前一排的座位安排情况
+                        if ((j & (k >> 1)) == 0  //检查前一排左上方
+                                && (j & (k << 1)) == 0) { //检查前一排右上方
+                            int cnt = Integer.bitCount(j);
+                            dp[i][j] = Math.max(dp[i][j], dp[i - 1][k] + cnt);
+                        }
+                    }
+                }
+            }
         }
-
+        int max = 0;
+        for (int i = 0; i < len; i++) {
+            max = Math.max(max, dp[m - 1][i]);
+        }
         return max;
     }
+
 
     //回溯法，超时
     public int maxStudentsI(char[][] seats) {

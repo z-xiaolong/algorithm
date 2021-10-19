@@ -27,7 +27,6 @@ public class PickIndex {
 
     public int pickIndex() {
         int k = random.nextInt(total);
-        Math.random();
         return binarySearch(k);
     }
 

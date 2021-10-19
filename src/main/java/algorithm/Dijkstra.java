@@ -43,21 +43,14 @@ public class Dijkstra {
         dp[start] = 0;
         Queue<Integer> queue = new LinkedList<>();
         queue.add(start);
-        boolean[] flag = new boolean[n];
-        flag[start] = true;
         while (!queue.isEmpty()) {
-            int size = queue.size();
-            while (size > 0) {
-                int index = queue.poll();
-                List<int[]> list = matrix.get(index);
-                for (int[] v : list) {
-                    dp[v[0]] = Math.min(dp[v[0]], dp[index] + v[1]);
-                    if (!flag[v[0]]) {
-                        queue.add(v[0]);
-                        flag[v[0]] = true;
-                    }
+            int index = queue.poll();
+            List<int[]> list = matrix.get(index);
+            for (int[] v : list) {
+                if (dp[v[0]] > dp[index] + v[1]) {
+                    dp[v[0]] = dp[index] + v[1];
+                    queue.add(v[0]);
                 }
-                size--;
             }
         }
         return dp[end];

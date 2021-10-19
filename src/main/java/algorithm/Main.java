@@ -13,26 +13,14 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-
-
-        Object o = new Object();
-        Object o1 = new Object();
-        o.equals(o);
-        System.out.println(o.hashCode());
-        System.out.println(o1.hashCode());
-
-        HashCodeTest code1 = new HashCodeTest();
-        HashCodeTest code2 = new HashCodeTest();
-        System.out.println(code1.equals(code2));
-        HashMap<HashCodeTest, String> map = new HashMap<>();
-        map.put(code1, "f");
-        map.put(code2, "code2");
-        System.out.println(map.size());
-        System.out.println(map.get(code1));
-        String str = "fds";
-        str.hashCode();
-        str.equals("fsdf");
+        int num = Integer.MAX_VALUE; //11
+        System.out.println(Integer.toBinaryString(num));
+        System.out.println(Integer.toBinaryString(Integer.MIN_VALUE));
+        int bit = 30;
+        while ((num & (1 << bit)) == 0) bit--;
+        num = num ^ (1<<(bit + 1));
+        System.out.println(num);
+        System.out.println(Integer.toBinaryString(num));
     }
 }
 

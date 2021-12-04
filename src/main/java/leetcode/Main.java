@@ -1,12 +1,50 @@
 package leetcode;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class Main {
 
-
     public static void main(String[] args) {
-        findErrorNums(new int[]{3, 2, 2});
+        int[] nums = new int[1024];
+        Arrays.fill(nums, 1);
+        Thread thread1 = new Thread(() -> {
+            long start = System.currentTimeMillis();
+            Random random = new Random();
+            for (int i = 1; i < 10 * 1024 * 1024; i++) {
+                nums[0] = random.nextInt(i);
+            }
+            long end = System.currentTimeMillis();
+            System.out.println(end - start);
+        });
+        Thread thread2 = new Thread(() -> {
+            long start = System.currentTimeMillis();
+            Random random = new Random();
+            for (int i = 1; i < 10 * 1024 * 1024; i++) {
+                nums[1] = random.nextInt(i);
+            }
+            long end = System.currentTimeMillis();
+            System.out.println(end - start);
+        });
+        thread1.start();
+        thread2.start();
+    }
+
+    public static void main1(String[] args) {
+        int n = 128 * 1024 * 1024;
+        int[] nums = new int[n];
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < n; i += 32) {
+            nums[i] *= i;
+        }
+        long end = System.currentTimeMillis();
+        System.out.println(end - start);
+        start = System.currentTimeMillis();
+        for (int i = 0; i < n; i += 2) {
+            nums[i] *= i;
+        }
+        end = System.currentTimeMillis();
+        System.out.println(end - start);
     }
 
     public static int[] findErrorNums(int[] nums) {
